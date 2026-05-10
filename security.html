@@ -17,14 +17,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .sec-hero { padding: 80px 0 32px; }
-  .sec-hero h1 { font-family: var(--display); font-size: clamp(56px, 7vw, 104px); line-height: .98; letter-spacing: -0.04em; margin: 24px 0 0; font-weight: 400; }
+  .sec-hero { padding: 96px 0 40px; }
+  .sec-hero h1 { font-family: var(--display); font-size: clamp(52px, 6.5vw, 96px); line-height: .98; letter-spacing: -0.04em; margin: 28px 0 0; font-weight: 400; }
   .sec-hero h1 em { font-style: italic; color: var(--fg-3); }
-  .sec-hero .lede { font-size: clamp(18px, 1.6vw, 22px); color: var(--fg-2); max-width: 720px; line-height: 1.5; margin-top: 28px; }
+  .sec-hero .lede { font-size: clamp(17px, 1.5vw, 21px); color: var(--fg-2); max-width: 720px; line-height: 1.55; margin-top: 32px; }
 
-  .badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 64px 0 80px; }
+  .badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 72px 0 88px; }
   @media (max-width: 880px) { .badges { grid-template-columns: 1fr 1fr; } }
-  .badge-cell { padding: 36px 28px; border-right: 1px solid var(--line); }
+  .badge-cell { padding: 40px 32px; border-right: 1px solid var(--line); }
   .badge-cell:last-child { border-right: 0; }
   @media (max-width: 880px) { .badge-cell { border-bottom: 1px solid var(--line); } .badge-cell:nth-child(2n) { border-right: 0; } }
   .badge-cell .ic { width: 44px; height: 44px; border-radius: 12px; background: color-mix(in oklab, var(--accent) 14%, transparent); color: var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
@@ -32,26 +32,26 @@
   .badge-cell .sub { font-family: var(--mono); font-size: 10px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .14em; }
   .badge-cell p { color: var(--fg-2); font-size: 13px; line-height: 1.5; margin: 12px 0 0; }
 
-  .ctrl-grid { display: grid; grid-template-columns: 320px 1fr; gap: 64px; padding: 64px 0; border-top: 1px solid var(--line); }
+  .ctrl-grid { display: grid; grid-template-columns: 320px 1fr; gap: 72px; padding: 72px 0; border-top: 1px solid var(--line); }
   @media (max-width: 880px) { .ctrl-grid { grid-template-columns: 1fr; gap: 32px; } }
   .ctrl-grid h2 { font-family: var(--display); font-size: clamp(36px, 4vw, 56px); line-height: 1.05; letter-spacing: -0.025em; margin: 0; font-weight: 400; }
   .ctrl-grid h2 em { font-style: italic; color: var(--fg-3); }
   .ctrl-list { display: grid; gap: 0; }
-  .ctrl-row { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  .ctrl-row { display: grid; grid-template-columns: 64px 1fr; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--line); align-items: start; }
   .ctrl-row:last-child { border-bottom: 0; }
   .ctrl-row .n { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: .14em; padding-top: 4px; }
   .ctrl-row h4 { font-family: var(--display); font-size: 18px; margin: 0; letter-spacing: -0.01em; font-weight: 500; }
   .ctrl-row p { margin: 6px 0 0; color: var(--fg-2); font-size: 14px; line-height: 1.6; }
 
-  .ir-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 64px 0; border-top: 1px solid var(--line); }
+  .ir-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 72px 0; border-top: 1px solid var(--line); }
   @media (max-width: 880px) { .ir-grid { grid-template-columns: 1fr 1fr; } }
   .ir-cell { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 28px; }
   .ir-cell .n { font-family: var(--mono); font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: .14em; }
   .ir-cell .t { font-family: var(--display); font-size: 36px; line-height: 1; margin: 14px 0 6px; letter-spacing: -0.02em; }
   .ir-cell p { color: var(--fg-2); font-size: 13px; line-height: 1.5; margin: 0; }
 
-  .docs { padding: 64px 0; border-top: 1px solid var(--line); }
-  .docs h2 { font-family: var(--display); font-size: clamp(36px, 4vw, 56px); margin: 12px 0 32px; letter-spacing: -0.025em; line-height: 1.05; font-weight: 400; }
+  .docs { padding: 72px 0; border-top: 1px solid var(--line); }
+  .docs h2 { font-family: var(--display); font-size: clamp(36px, 4vw, 56px); margin: 14px 0 36px; letter-spacing: -0.025em; line-height: 1.05; font-weight: 400; }
   .docs h2 em { font-style: italic; color: var(--fg-3); }
   .doc-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
   @media (max-width: 720px) { .doc-row { grid-template-columns: 1fr; } }
