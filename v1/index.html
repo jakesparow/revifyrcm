@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RevifyRCM — The AI-native revenue cycle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .hero { padding-top: 56px; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: end; padding-bottom: 40px; }
+  @media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .hero-meta { display: flex; gap: 24px; align-items: center; margin-bottom: 28px; flex-wrap: wrap; }
+  .hero h1 { margin: 0 0 0 -4px; }
+  .hero .lede { margin-top: 24px; }
+  .hero-cta { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+  .hero-side { display: grid; gap: 14px; padding-bottom: 4px; }
+  .hero-side .card { padding: 18px; }
+  .live-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .live-row .label { font-family: var(--mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .14em; }
+  .live-row .value { font-family: var(--serif); font-size: 32px; line-height: 1; letter-spacing: -0.02em; }
+  .live-row .delta { font-family: var(--mono); font-size: 11px; color: var(--accent-2); }
+  .ticker { font-family: var(--mono); font-size: 11px; color: var(--fg-3); display: flex; gap: 18px; flex-wrap: wrap; }
+  .ticker span b { color: var(--fg-2); font-weight: 500; }
+  .strip { padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .strip-inner { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: space-between; }
+  .strip .label { font-family: var(--mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .16em; }
+  .strip .logos { display: flex; gap: 36px; flex-wrap: wrap; align-items: center; color: var(--fg-2); font-family: var(--serif); font-size: 22px; letter-spacing: -0.02em; opacity: .85; }
+  .manifesto { padding: 140px 0; }
+  .manifesto p { font-family: var(--serif); font-weight: 300; font-size: clamp(28px, 3.4vw, 48px); line-height: 1.18; letter-spacing: -0.02em; max-width: 1100px; color: var(--fg); margin: 0; }
+  .manifesto p em { font-style: italic; color: var(--fg-3); }
+  .manifesto p .accent { color: var(--accent); font-style: italic; }
+  .agents-section .head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 48px; gap: 32px; flex-wrap: wrap; }
+  .agents-section .head h2 { max-width: 720px; margin: 16px 0 0; }
+  .agent-rows { display: grid; gap: 1px; background: var(--line); border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); }
+  .agent-row { background: var(--ink); padding: 24px 28px; display: grid; grid-template-columns: 28px 200px 1fr 180px 90px; gap: 24px; align-items: center; transition: background .15s; }
+  .agent-row:hover { background: var(--ink-2); }
+  .agent-row .num { font-family: var(--mono); font-size: 11px; color: var(--fg-3); }
+  .agent-row .name { font-family: var(--serif); font-size: 22px; letter-spacing: -0.02em; }
+  .agent-row .desc { color: var(--fg-2); font-size: 14px; line-height: 1.5; }
+  .agent-row .stat { font-family: var(--mono); font-size: 12px; color: var(--accent); text-align: right; }
+  .agent-row .status { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; color: var(--fg-3); justify-self: end; }
+  .agent-row .status .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 10px var(--accent-2); }
+  @media (max-width: 980px) { .agent-row { grid-template-columns: 24px 1fr; row-gap: 8px; } .agent-row .name, .agent-row .desc, .agent-row .stat, .agent-row .status { grid-column: 2; justify-self: start; text-align: left; } }
+  .outcomes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .outcome { padding: 48px 32px; border-right: 1px solid var(--line); }
+  .outcome:last-child { border-right: none; }
+  @media (max-width: 980px) { .outcomes-grid { grid-template-columns: repeat(2, 1fr); } .outcome:nth-child(2) { border-right: none; } .outcome:nth-child(1), .outcome:nth-child(2) { border-bottom: 1px solid var(--line); } }
+  @media (max-width: 560px) { .outcomes-grid { grid-template-columns: 1fr; } .outcome { border-right: none; border-bottom: 1px solid var(--line); } .outcome:last-child { border-bottom: none; } }
+  .console-wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: start; }
+  @media (max-width: 980px) { .console-wrap { grid-template-columns: 1fr; } }
+  .console { background: linear-gradient(180deg, #0d1015 0%, #0a0c10 100%); border: 1px solid var(--line-2); border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+  .console-bar { display: flex; align-items: center; gap: 8px; padding: 14px 16px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 11px; color: var(--fg-3); }
+  .console-bar .dots { display: flex; gap: 6px; }
+  .console-bar .dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--ink-3); }
+  .console-bar .live { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: var(--accent-2); }
+  .console-bar .live .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); animation: pulse 1.4s infinite; }
+  .console-body { padding: 24px; min-height: 460px; max-height: 460px; overflow-y: auto; font-family: var(--mono); font-size: 12.5px; line-height: 1.65; color: var(--fg-2); }
+  .agent-line { display: flex; gap: 14px; margin-bottom: 14px; opacity: 0; animation: fadeIn .35s forwards; }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .agent-tag { color: var(--accent); flex-shrink: 0; min-width: 130px; }
+  .step-title { color: var(--fg); }
+  .step-meta { color: var(--fg-3); font-size: 11px; margin-top: 4px; }
+  .ok { color: var(--accent-2); }
+  .warn { color: var(--accent-warm); }
+  .console-input { padding: 12px 16px; border-top: 1px solid var(--line); display: flex; gap: 10px; align-items: center; }
+  .console-input input { flex: 1; background: transparent; border: 0; color: var(--fg); font-family: var(--mono); font-size: 13px; outline: 0; }
+  .console-input button { background: var(--accent); color: #0A0B0E; border: 0; padding: 6px 14px; border-radius: 999px; font-family: var(--mono); font-size: 11px; cursor: pointer; text-transform: uppercase; letter-spacing: .1em; font-weight: 500; }
+  .scenarios { display: grid; gap: 8px; margin-top: 24px; }
+  .scenario-btn { background: transparent; border: 1px solid var(--line); padding: 14px 16px; border-radius: var(--r-md); color: var(--fg-2); cursor: pointer; text-align: left; font-family: var(--sans); font-size: 14px; transition: all .15s; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .scenario-btn:hover { border-color: var(--line-2); color: var(--fg); }
+  .scenario-btn.active { background: var(--ink-2); border-color: var(--accent); color: var(--fg); }
+  .scenario-btn .meta { font-family: var(--mono); font-size: 11px; color: var(--fg-3); }
+  .stack-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; margin-top: 56px; }
+  @media (max-width: 980px) { .stack-grid { grid-template-columns: 1fr; } }
+  .stack-card { background: var(--ink); padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; min-height: 280px; }
+  .stack-card .url { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+  .stack-card .name { font-family: var(--serif); font-size: 30px; line-height: 1.1; letter-spacing: -0.025em; }
+  .stack-card .desc { color: var(--fg-2); font-size: 15px; line-height: 1.5; flex: 1; }
+  .stack-card .features { display: grid; gap: 6px; font-family: var(--mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .1em; }
+  .cases { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+  @media (max-width: 760px) { .cases { grid-template-columns: 1fr; } }
+  .case { background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 32px; display: flex; flex-direction: column; gap: 24px; }
+  .case .badge { font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: .14em; }
+  .case .quote { font-family: var(--serif); font-size: 26px; line-height: 1.25; letter-spacing: -0.02em; font-weight: 300; }
+  .case .author { font-family: var(--mono); font-size: 12px; color: var(--fg-3); }
+  .case .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .case .metrics .m { display: flex; flex-direction: column; gap: 4px; }
+  .case .metrics .m b { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: -0.02em; }
+  .case .metrics .m span { font-family: var(--mono); font-size: 10px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .1em; }
+  .cta { padding: 160px 0; text-align: center; }
+  .cta h2 { max-width: 1000px; margin: 0 auto 32px; }
+  .cta .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .glow { position: absolute; pointer-events: none; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, color-mix(in oklab, var(--accent) 24%, transparent) 0%, transparent 60%); filter: blur(60px); opacity: .35; z-index: 0; }
+  .glow.tr { top: -260px; right: -260px; }
+  .hero .container { position: relative; z-index: 1; }
+  /* Pricing comparison */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; margin-top: 56px; }
+  @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+  .compare > div { background: var(--ink); padding: 36px; }
+  .compare .them { color: var(--fg-3); }
+  .compare .us { background: var(--ink-2); }
+  .compare h3 { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .16em; color: var(--fg-3); margin: 0 0 24px; }
+  .compare .us h3 { color: var(--accent); }
+  .compare ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .compare li { padding-left: 24px; position: relative; font-size: 15px; line-height: 1.45; }
+  .compare li::before { content: "—"; position: absolute; left: 0; top: 0; color: var(--fg-3); }
+  .compare .us li::before { content: "✓"; color: var(--accent); }
+  .compare .us li { color: var(--fg); }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></a>
+    <div class="nav-links">
+      <a href="agents.html">Agents</a>
+      <a href="outcomes.html">Outcomes</a>
+      <a href="platform.html">Platform</a>
+      <a href="company.html">Company</a>
+    </div>
+    <div class="nav-cta">
+      <a href="company.html" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="company.html#demo" class="btn btn-primary btn-sm">Book a demo <span class="arrow">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+
+  <section class="hero" data-screen-label="01 Hero">
+    <span class="glow tr"></span>
+    <div class="container">
+      <div class="hero-meta">
+        <span class="eyebrow">RevifyRCM &nbsp;/&nbsp; v3 · Spring 2026</span>
+        <span class="pill"><span class="dot"></span>14 agents live · 2.1M claims processed this quarter</span>
+      </div>
+      <div class="hero-grid">
+        <div>
+          <h1 class="h-display">The revenue cycle,<br/><em>finally autonomous.</em></h1>
+          <p class="lede">RevifyRCM replaces your offshore billing floor with a network of specialist AI agents — eligibility, coding, claims, denials, AR, patient pay — that work 24/7, learn your payer mix, and only invoice you on the dollars they actually collect.</p>
+          <div class="hero-cta">
+            <a href="company.html#demo" class="btn btn-primary">Book a demo <span class="arrow">→</span></a>
+            <a href="agents.html" class="btn btn-ghost">See the agents</a>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="card">
+            <div class="live-row">
+              <div><div class="label">Net collections lift, avg.</div><div class="value">+11.4<span style="font-size:.6em;color:var(--fg-3)">%</span></div></div>
+              <span class="delta">▲ vs prior 90d</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="live-row">
+              <div><div class="label">Days in AR</div><div class="value">22.6</div></div>
+              <span class="delta">−38% from baseline</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="live-row">
+              <div><div class="label">First-pass yield</div><div class="value">98.7<span style="font-size:.6em;color:var(--fg-3)">%</span></div></div>
+              <span class="delta">SOC 2 · HIPAA</span>
+            </div>
+          </div>
+          <div class="ticker">
+            <span>EDI <b>837P · 837I · 270/271 · 276/277 · 835</b></span>
+            <span>· 47 clearinghouses · 1,400+ payers</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="container">
+      <div class="strip-inner">
+        <span class="label">Trusted by independent practices &amp; health systems across</span>
+        <div class="logos">
+          <span>Texas</span><span>· North Carolina</span><span>· Florida</span><span>· Georgia</span><span>· California</span><span>· 17 specialties</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto" data-screen-label="02 Manifesto">
+    <div class="container">
+      <p>For thirty years, revenue cycle has meant <em>more headcount.</em> More floors in Manila, Hyderabad, Cebu. More humans clicking through portals payers built to slow you down.<br/><br/>We think that's over. <span class="accent">RevifyRCM is the first RCM operator built agent-first</span> — not a BPO with a chatbot bolted on, not a SaaS tool waiting for your team to use it. Agents do the work. Humans handle the exceptions. You pay on collections.</p>
+    </div>
+  </section>
+
+  <section class="agents-section" data-screen-label="03 Agents">
+    <div class="container">
+      <div class="head">
+        <div>
+          <span class="eyebrow">The agent network</span>
+          <h2 class="h-1">Fourteen specialist agents.<br/><em style="font-style:italic;color:var(--fg-3)">One revenue cycle.</em></h2>
+        </div>
+        <a href="agents.html" class="btn btn-ghost">Full agent library <span class="arrow">→</span></a>
+      </div>
+      <div class="agent-rows" id="agent-rows"></div>
+    </div>
+  </section>
+
+  <section data-screen-label="04 Outcomes">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:60px;" class="grid-2">
+        <div>
+          <span class="eyebrow">Outcomes, not promises</span>
+          <h2 class="h-1" style="margin:16px 0 0">What our clients see in the first 90 days.</h2>
+        </div>
+        <p class="lede">Numbers below are weighted averages across 38 active clients in TX, NC, FL, GA, and CA — primary care, orthopedics, cardiology, behavioral health, ASCs, and specialty hospitals. Audited quarterly.</p>
+      </div>
+      <div class="outcomes-grid">
+        <div class="outcome">
+          <div class="stat-num">+11.4<span style="font-family:var(--sans);font-size:.5em;color:var(--fg-3)">%</span></div>
+          <div class="stat-label">Net collections lift</div>
+        </div>
+        <div class="outcome">
+          <div class="stat-num">−38<span style="font-family:var(--sans);font-size:.5em;color:var(--fg-3)">%</span></div>
+          <div class="stat-label">Days in AR</div>
+        </div>
+        <div class="outcome">
+          <div class="stat-num">−42<span style="font-family:var(--sans);font-size:.5em;color:var(--fg-3)">%</span></div>
+          <div class="stat-label">Denial rate</div>
+        </div>
+        <div class="outcome">
+          <div class="stat-num">98.7<span style="font-family:var(--sans);font-size:.5em;color:var(--fg-3)">%</span></div>
+          <div class="stat-label">First-pass yield</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="05 Live agent">
+    <div class="container">
+      <div class="console-wrap">
+        <div>
+          <span class="eyebrow">Watch an agent work</span>
+          <h2 class="h-1" style="margin:16px 0 24px;">A denied claim,<br/><em style="color:var(--fg-3)">end to end.</em></h2>
+          <p class="lede">Pick a scenario. The Denial Triage agent reads the 835, classifies the denial, drafts the appeal with the right LMRP citations, and pushes it back through the clearinghouse — no human queue.</p>
+          <div class="scenarios">
+            <button class="scenario-btn active" data-scenario="0"><span>CO-50 · Not medically necessary</span><span class="meta">$1,840 · BCBS TX</span></button>
+            <button class="scenario-btn" data-scenario="1"><span>CO-197 · Auth missing</span><span class="meta">$3,200 · UHC</span></button>
+            <button class="scenario-btn" data-scenario="2"><span>CO-16 · Missing modifier</span><span class="meta">$612 · Aetna</span></button>
+          </div>
+        </div>
+        <div class="console" id="console">
+          <div class="console-bar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span>revify://agents/denial-triage · session #4d2a91</span>
+            <span class="live"><span class="dot"></span>LIVE</span>
+          </div>
+          <div class="console-body" id="console-body"></div>
+          <div class="console-input">
+            <span style="color:var(--accent);font-family:var(--mono);font-size:13px;">▸</span>
+            <input id="console-input" placeholder="Ask the agent — e.g. 'why was this denied?'" />
+            <button id="console-send">SEND</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: var(--ink-2);" data-screen-label="06 Platform">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;">
+        <div>
+          <span class="eyebrow">Powered by the GetMax stack</span>
+          <h2 class="h-1" style="margin:16px 0 0;max-width:760px;">Our agents stand on a platform<br/><em style="color:var(--fg-3)">we own end-to-end.</em></h2>
+        </div>
+        <a href="platform.html" class="btn btn-ghost">Tour the platform <span class="arrow">→</span></a>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <span class="url">portal.getmaxhealthcare.com</span>
+          <div class="name">GetMax Portal</div>
+          <p class="desc">The unified RCM workspace for your team and ours. Worklists, exceptions, real-time AR, patient ledgers, and every agent action in one audit-ready timeline.</p>
+          <div class="features"><span>· EHR-agnostic · Athena, Epic, eCW, Kareo, AdvancedMD</span><span>· Role-based access · 200+ permissions</span><span>· Native messaging across providers + agents</span></div>
+        </div>
+        <div class="stack-card">
+          <span class="url">icdintel.getmaxhealthcare.com</span>
+          <div class="name">ICD Intel</div>
+          <p class="desc">Our autonomous coding engine. Reads notes, op reports, labs, and imaging. Returns CPT/ICD-10/HCPCS with NCCI edits, modifier logic, and rationale per code.</p>
+          <div class="features"><span>· 96.8% no-touch coding</span><span>· Specialty-tuned models · 17 specialties</span><span>· CDI queries auto-routed to providers</span></div>
+        </div>
+        <div class="stack-card">
+          <span class="url">getmaxsolutions.com</span>
+          <div class="name">GetMax Solutions</div>
+          <p class="desc">The IT &amp; integration layer. Clearinghouse pipelines, payer APIs, EHR connectors, and the secure data plane behind every agent decision.</p>
+          <div class="features"><span>· SOC 2 Type II · HIPAA · HITRUST in progress</span><span>· 47 clearinghouse routes</span><span>· Zero-retention LLM gateways</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="07 vs BPO">
+    <div class="container">
+      <span class="eyebrow">The shift</span>
+      <h2 class="h-1" style="margin:16px 0 0;max-width:900px;">Built for collections,<br/><em style="color:var(--fg-3)">not for billable hours.</em></h2>
+      <div class="compare">
+        <div class="them">
+          <h3>Legacy BPOs &amp; SaaS billers</h3>
+          <ul>
+            <li>Pay for FTEs, hours, or per-claim — regardless of whether you collect.</li>
+            <li>Offshore floors with 30–40% annual attrition. Your tribal knowledge walks out every year.</li>
+            <li>Rule-based scrubbers. Static playbooks. New payer policy = ticket to engineering.</li>
+            <li>9×5 in someone else's timezone. Denials sit in a queue for 14 days.</li>
+            <li>Black-box reporting. You see what they choose to show you.</li>
+            <li>R1, Access Healthcare, Omega, MedEx, BellMedEx — all built for the old model.</li>
+          </ul>
+        </div>
+        <div class="us">
+          <h3>RevifyRCM</h3>
+          <ul>
+            <li>Outcome-based pricing. We invoice a % of dollars actually posted to your bank.</li>
+            <li>Agents don't quit. Knowledge compounds — every claim makes the next one smarter.</li>
+            <li>Policy-aware models retrained weekly across 1,400+ payer plans.</li>
+            <li>24/7 operations. A denial filed at 11pm gets an appeal drafted by 11:04pm.</li>
+            <li>Open ledger — every agent action, prompt, and decision is auditable in your portal.</li>
+            <li>Built agent-first in 2024 for what RCM becomes in 2027.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="08 Cases">
+    <div class="container">
+      <span class="eyebrow">Case studies</span>
+      <h2 class="h-1" style="margin:16px 0 0;max-width:760px;">Two stories,<br/><em style="color:var(--fg-3)">one pattern.</em></h2>
+      <div class="cases">
+        <div class="case">
+          <span class="badge">Multi-specialty group · Texas · 47 providers</span>
+          <p class="quote">"We replaced a 22-person offshore team and our internal AR group still got smaller. Cash hit the door faster than I've seen in 18 years of practice management."</p>
+          <p class="author">— VP, Revenue Operations · Houston, TX</p>
+          <div class="metrics">
+            <div class="m"><b>+14.2%</b><span>Net collections</span></div>
+            <div class="m"><b>19 days</b><span>AR (from 41)</span></div>
+            <div class="m"><b>$3.8M</b><span>Recovered in Y1</span></div>
+          </div>
+        </div>
+        <div class="case">
+          <span class="badge">Orthopedic specialty hospital · North Carolina</span>
+          <p class="quote">"The denial agent caught $612K of underpayments in the first quarter — money our previous vendor literally never told us was missing."</p>
+          <p class="author">— CFO · Charlotte, NC</p>
+          <div class="metrics">
+            <div class="m"><b>−47%</b><span>Denial rate</span></div>
+            <div class="m"><b>99.1%</b><span>Clean-claim rate</span></div>
+            <div class="m"><b>$612K</b><span>Underpayment recovery</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" data-screen-label="09 CTA">
+    <div class="container">
+      <span class="eyebrow">Move first</span>
+      <h2 class="h-display" style="margin:24px 0 0;">Stop renting a billing<br/>floor. <em>Hire an agent stack.</em></h2>
+      <p class="lede" style="margin:32px auto 0;text-align:center;">Free 30-day shadow run on your last 90 days of claims. We benchmark our agents against your current vendor — line by line. You decide.</p>
+      <div class="actions" style="margin-top:40px;">
+        <a href="company.html#demo" class="btn btn-primary">Book a demo <span class="arrow">→</span></a>
+        <a href="outcomes.html" class="btn btn-ghost">See pricing</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div>
+      <div class="logo" style="margin-bottom:16px;"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></div>
+      <p style="color:var(--fg-3);max-width:300px;font-size:13px;line-height:1.6;">The AI-native revenue cycle. Headquartered in Texas, operating across the United States.</p>
+    </div>
+    <div>
+      <h5>Product</h5>
+      <ul>
+        <li><a href="agents.html">Agents</a></li>
+        <li><a href="platform.html">Platform</a></li>
+        <li><a href="outcomes.html">Outcomes</a></li>
+        <li><a href="outcomes.html#pricing">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Stack</h5>
+      <ul>
+        <li><a href="https://portal.getmaxhealthcare.com">portal.getmaxhealthcare.com</a></li>
+        <li><a href="https://icdintel.getmaxhealthcare.com">icdintel.getmaxhealthcare.com</a></li>
+        <li><a href="https://getmaxsolutions.com">getmaxsolutions.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="company.html">About</a></li>
+        <li><a href="company.html#careers">Careers</a></li>
+        <li><a href="company.html#demo">Book a demo</a></li>
+        <li><a href="#">Trust &amp; security</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 RevifyRCM, Inc. · A GetMax Healthcare company.</span>
+    <span class="mono">SOC 2 Type II · HIPAA · v3.2.1</span>
+  </div>
+</footer>
+
+<script>
+  // Render agents
+  const agents = [
+    ["01","Eligibility","Continuous 270/271 verification across 1,400+ payers. Flags coverage gaps before the encounter.","99.2% accurate"],
+    ["02","Prior Auth","Drafts, submits, and tracks PAs end-to-end. Knows payer policy at the regional plan level.","−72% staff hours"],
+    ["03","Coding","Autonomous CPT/ICD-10/HCPCS coding with NCCI edits. Powered by ICD Intel.","96.8% no-touch"],
+    ["04","CDI","Real-time documentation queries to providers. Catches missed specificity at point of care.","+15% RAF"],
+    ["05","Charge Capture","Reconciles documented services to billed charges. Prevents leakage on the way in.","$4.10 / encounter"],
+    ["06","Claims Scrubbing","Context-aware claim assembly. Learns from every adjudication, not a static rulebook.","98.7% first-pass"],
+    ["07","Denial Triage","Classifies denials by recovery probability and writes appeals autonomously.","−42% denial rate"],
+    ["08","AR Follow-up","Calls payers, navigates IVR, parses 277, escalates exceptions to humans only when needed.","22.6 days in AR"],
+    ["09","Underpayment","Reads contract terms, detects underpayments at line level, files re-determinations.","+1.8% net collections"],
+    ["10","Patient Billing","Compliant outreach across SMS, email, voice. TCPA &amp; FDCPA gates built in.","+34% self-pay yield"],
+    ["11","Cash Posting","Auto-posts 835s, balances exceptions, reconciles to bank.","100% same-day"],
+    ["12","Credentialing","Tracks CAQH, recredentialing, payer enrollment, license expirations.","0 lapsed enrollments"],
+    ["13","Contracting","Models payer contracts, surfaces renegotiation leverage from your own claims data.","+3–7% rate uplift", "BETA"],
+    ["14","CFO Copilot","Conversational dashboards. Ask any question of your revenue cycle in plain English.","2,400+ KPIs"]
+  ];
+  document.getElementById('agent-rows').innerHTML = agents.map(a => `
+    <div class="agent-row">
+      <span class="num">${a[0]}</span>
+      <span class="name">${a[1]}</span>
+      <span class="desc">${a[2]}</span>
+      <span class="stat">${a[3]}</span>
+      <span class="status"><span class="dot"></span>${a[4]||"LIVE"}</span>
+    </div>`).join('');
+
+  // Live console scenarios
+  const scenarios = [
+    [
+      ["INGEST","Reading 835 from BCBS TX","CARC: CO-50 · RARC: M127 · billed $1,840 · paid $0"],
+      ["CLASSIFY","Denial type: medical-necessity (recoverable)","Confidence 0.94 · 4,821 similar appeals in memory"],
+      ["RETRIEVE","Pulled BCBS TX LMRP for CPT 64483","Document: TX-2024-MN-44 · effective 2024-09-01"],
+      ["DRAFT","Composed appeal letter w/ clinical citations","842 words · 3 citations · 1 op note attached"],
+      ["REVIEW","Human-in-the-loop: not required","Auto-approved at threshold 0.90"],
+      ["SUBMIT","Filed via Availity → BCBS TX","Tracking 0982-AC-99214 · ETA 28 days"],
+      ["DONE","Logged to portal · agent.denial-triage.v3.2","Net cycle time: 4m 11s · expected recovery $1,840"]
+    ],
+    [
+      ["INGEST","Reading 835 from UnitedHealthcare","CARC: CO-197 · billed $3,200 · paid $0"],
+      ["CLASSIFY","Denial type: auth-missing (recoverable, retro)","Confidence 0.97 · retro window 90d open"],
+      ["RETRIEVE","UHC retro-auth path · plan SE-09228","Form: PA-RETRO-2024 · clinical bundle ready"],
+      ["DRAFT","Composed retro auth + appeal package","Bundle: H&P, op note, MRI · 6 attachments"],
+      ["SUBMIT","Filed via UHC provider portal","Auth #PA-449281 · status: pending review"],
+      ["DONE","Tracked · expected resolution 7–14 days","Recovery probability 0.88 · $2,816 expected"]
+    ],
+    [
+      ["INGEST","Reading 835 from Aetna","CARC: CO-16 · billed $612 · paid $0"],
+      ["CLASSIFY","Denial type: missing modifier","Confidence 0.99 · auto-fixable"],
+      ["RESOLVE","Identified missing -25 on E/M with procedure","Code 99213 + 12001 · same-day rule"],
+      ["RESUBMIT","Corrected claim filed via Change Healthcare","Original CCN 24812 · corrected sequence 0001"],
+      ["DONE","Logged · cycle time 28 seconds","Expected payment $612 · 14-day cycle"]
+    ]
+  ];
+
+  let renderToken = 0;
+  async function playScenario(idx) {
+    const body = document.getElementById('console-body');
+    body.innerHTML = '';
+    const myToken = ++renderToken;
+    const steps = scenarios[idx];
+    for (let i = 0; i < steps.length; i++) {
+      if (myToken !== renderToken) return;
+      await new Promise(r => setTimeout(r, i === 0 ? 200 : 650));
+      if (myToken !== renderToken) return;
+      const [tag, title, meta] = steps[i];
+      const isLast = i === steps.length - 1;
+      const tagClass = isLast ? 'ok' : (tag === 'WARN' ? 'warn' : '');
+      body.insertAdjacentHTML('beforeend', `
+        <div class="agent-line">
+          <span class="agent-tag ${tagClass}">▸ ${tag}</span>
+          <div>
+            <div class="step-title">${title}</div>
+            <div class="step-meta">${meta}</div>
+          </div>
+        </div>
+      `);
+      body.scrollTop = body.scrollHeight;
+    }
+  }
+  document.querySelectorAll('.scenario-btn').forEach((b, i) => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.scenario-btn').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      playScenario(i);
+    });
+  });
+  playScenario(0);
+
+  document.getElementById('console-send').addEventListener('click', () => {
+    const inp = document.getElementById('console-input');
+    if (!inp.value.trim()) return;
+    const body = document.getElementById('console-body');
+    body.insertAdjacentHTML('beforeend', `
+      <div class="agent-line"><span class="agent-tag" style="color:var(--fg-2)">▸ YOU</span><div><div class="step-title">${inp.value}</div></div></div>
+      <div class="agent-line"><span class="agent-tag ok">▸ AGENT</span><div><div class="step-title">Routing to specialist agent…</div><div class="step-meta">This is a demo. The live agent answers from your real portal.</div></div></div>
+    `);
+    inp.value = '';
+    body.scrollTop = body.scrollHeight;
+  });
+
+  // ----- Tweaks -----
+  const TWEAKS = /*EDITMODE-BEGIN*/{
+    "theme": "light",
+    "palette": "lime",
+    "density": "airy",
+    "heroVariant": "editorial",
+    "typePair": "serif-sans"
+  }/*EDITMODE-END*/;
+
+  function applyTweaks(t) {
+    document.documentElement.dataset.theme = t.theme;
+    const palettes = {
+      lime:    { accent: "#C7FF3F", glow: "#C7FF3F" },
+      amber:   { accent: "#F5B544", glow: "#F5B544" },
+      cyan:    { accent: "#5DD9D9", glow: "#5DD9D9" },
+      magenta: { accent: "#FF5DA2", glow: "#FF5DA2" }
+    };
+    const p = palettes[t.palette] || palettes.lime;
+    document.documentElement.style.setProperty('--accent', p.accent);
+
+    const types = {
+      "serif-sans":   { serif: '"Fraunces", Georgia, serif', sans: '"Inter", system-ui, sans-serif' },
+      "sans-mono":    { serif: '"Inter", system-ui, sans-serif', sans: '"Inter", system-ui, sans-serif' },
+      "editorial":    { serif: '"Fraunces", Georgia, serif', sans: '"Inter", system-ui, sans-serif' }
+    };
+    const tp = types[t.typePair] || types["serif-sans"];
+    document.documentElement.style.setProperty('--serif', tp.serif);
+    document.documentElement.style.setProperty('--sans', tp.sans);
+
+    const dens = { compact: 0.82, comfortable: 1, airy: 1.18 }[t.density] || 1;
+    document.documentElement.style.setProperty('--pad-page', `clamp(${20*dens}px, ${4*dens}vw, ${56*dens}px)`);
+
+    // Hero variant
+    const heroTitle = document.querySelector('.hero h1');
+    if (heroTitle) {
+      if (t.heroVariant === 'editorial') heroTitle.innerHTML = 'The revenue cycle,<br/><em>finally autonomous.</em>';
+      if (t.heroVariant === 'bold') heroTitle.innerHTML = 'Replace your billing<br/>floor. <em>Hire agents.</em>';
+      if (t.heroVariant === 'outcome') heroTitle.innerHTML = '+11.4% net collections.<br/><em>Paid only when we deliver.</em>';
+    }
+  }
+  applyTweaks(TWEAKS);
+
+  let panelOpen = false;
+  function buildPanel() {
+    const p = document.createElement('div');
+    p.id = '__tweaks-panel';
+    p.style.cssText = 'position:fixed;bottom:20px;right:20px;width:300px;background:var(--ink-2);border:1px solid var(--line-2);border-radius:14px;padding:18px;z-index:1000;font-family:var(--sans);box-shadow:0 24px 60px rgba(0,0,0,0.5);';
+    p.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <strong style="font-family:var(--serif);font-size:18px;">Tweaks</strong>
+        <button id="tw-close" style="background:transparent;border:0;color:var(--fg-3);cursor:pointer;font-size:18px;">×</button>
+      </div>
+      ${tweakRow('Theme','theme',['dark','light'])}
+      ${tweakRow('Palette','palette',['lime','amber','cyan','magenta'])}
+      ${tweakRow('Hero','heroVariant',['editorial','bold','outcome'])}
+      ${tweakRow('Type','typePair',['serif-sans','sans-mono'])}
+      ${tweakRow('Density','density',['compact','comfortable','airy'])}
+    `;
+    document.body.appendChild(p);
+    document.getElementById('tw-close').onclick = () => { p.remove(); panelOpen = false; window.parent.postMessage({type:'__edit_mode_dismissed'},'*'); };
+    p.querySelectorAll('button[data-tw]').forEach(b => {
+      b.onclick = () => {
+        const k = b.dataset.tw, v = b.dataset.val;
+        TWEAKS[k] = v;
+        applyTweaks(TWEAKS);
+        p.querySelectorAll(`button[data-tw="${k}"]`).forEach(x => x.style.background = x.dataset.val === v ? 'var(--accent)' : 'transparent');
+        p.querySelectorAll(`button[data-tw="${k}"]`).forEach(x => x.style.color = x.dataset.val === v ? '#0A0B0E' : 'var(--fg-2)');
+        window.parent.postMessage({type:'__edit_mode_set_keys', edits:{[k]:v}}, '*');
+      };
+    });
+    // initial active state
+    Object.entries(TWEAKS).forEach(([k,v]) => {
+      p.querySelectorAll(`button[data-tw="${k}"]`).forEach(x => {
+        if (x.dataset.val === v) { x.style.background = 'var(--accent)'; x.style.color = '#0A0B0E'; }
+      });
+    });
+  }
+  function tweakRow(label, key, opts) {
+    return `<div style="margin-bottom:12px;">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--fg-3);text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px;">${label}</div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap;">
+        ${opts.map(o => `<button data-tw="${key}" data-val="${o}" style="flex:1;min-width:0;padding:6px 8px;border:1px solid var(--line-2);background:transparent;color:var(--fg-2);border-radius:6px;font-family:var(--mono);font-size:10px;cursor:pointer;text-transform:uppercase;letter-spacing:.08em;">${o}</button>`).join('')}
+      </div>
+    </div>`;
+  }
+
+  window.addEventListener('message', (e) => {
+    if (e.data?.type === '__activate_edit_mode') { if (!panelOpen) { buildPanel(); panelOpen = true; } }
+    if (e.data?.type === '__deactivate_edit_mode') { document.getElementById('__tweaks-panel')?.remove(); panelOpen = false; }
+  });
+  window.parent.postMessage({type:'__edit_mode_available'}, '*');
+</script>
+</body>
+</html>

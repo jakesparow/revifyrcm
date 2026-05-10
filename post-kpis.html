@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The 5 KPIs every CFO should rename in 2026 — RevifyRCM Insights</title>
+<meta name="description" content="Days in A/R is a lagging indicator. Here's the leading set we report at every Monday read-out. By Amanda Perez." />
+<meta name="theme-color" content="#0A0B0E" />
+<link rel="canonical" href="https://revifyrcm.com/post-kpis.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The 5 KPIs every CFO should rename in 2026" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="post-styles.css" />
+</head>
+<body>
+<a id="skip-link" href="#main" class="skip-link">Skip to content</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></a>
+    <div class="nav-links"><a href="agents.html">Agents</a><a href="outcomes.html">Outcomes</a><a href="platform.html">Platform</a><a href="team.html">Team</a><a href="insights.html" class="active">Insights</a><a href="contact.html">Contact</a><a href="company.html">Company</a></div>
+    <div class="nav-cta"><a href="company.html" class="btn btn-ghost btn-sm">Sign in</a><a href="contact.html" class="btn btn-primary btn-sm">Book a demo →</a></div>
+  </div>
+</nav>
+
+<main id="main" class="page">
+  <article>
+    <header class="article-hero container">
+      <div class="crumbs"><a href="insights.html">Insights</a> · Field guide · 6 min read</div>
+      <h1>The 5 KPIs every CFO should rename in 2026.</h1>
+      <p class="lede">"Days in A/R" is a lagging indicator. Here's the leading set we report at every Monday read-out — and why the old dashboards are about to look like a fax machine.</p>
+      <div class="byline"><div class="av" style="background:linear-gradient(135deg,#FF6B3D,#C44A26);">AP</div><div class="meta"><strong>Amanda Perez</strong> · Co-founder & CEO · Apr 14, 2026</div></div>
+    </header>
+
+    <div class="cover-art container">
+      <svg viewBox="0 0 1100 540" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="kg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#181B22"/><stop offset="1" stop-color="#0A0B0E"/></linearGradient></defs>
+        <rect width="1100" height="540" fill="url(#kg)"/>
+        <g opacity="0.06" stroke="#fff"><path d="M0 100h1100M0 200h1100M0 300h1100M0 400h1100"/></g>
+        <g transform="translate(80,80)" font-family="JetBrains Mono, monospace" font-size="11" fill="#5C5A52">
+          <rect x="0" y="280" width="80" height="100" fill="#2A2D34" rx="4"/><text x="40" y="400" text-anchor="middle">DAYS_AR</text>
+          <rect x="110" y="220" width="80" height="160" fill="#3A3D44" rx="4"/><text x="150" y="400" text-anchor="middle">CCR</text>
+          <rect x="220" y="160" width="80" height="220" fill="#4A5058" rx="4"/><text x="260" y="400" text-anchor="middle">FPR</text>
+          <rect x="330" y="80" width="80" height="300" fill="#C7FF3F" rx="4"/><text x="370" y="400" text-anchor="middle" fill="#C7FF3F">DENIAL_HALF</text>
+          <rect x="440" y="40" width="80" height="340" fill="#C7FF3F" rx="4"/><text x="480" y="400" text-anchor="middle" fill="#C7FF3F">CONFIDENCE</text>
+        </g>
+        <text x="80" y="465" font-family="Geist" font-size="48" fill="#F4F2EE" font-weight="500" letter-spacing="-2">From lagging to <tspan fill="#C7FF3F" font-style="italic">leading.</tspan></text>
+        <text x="80" y="500" font-family="JetBrains Mono, monospace" font-size="11" fill="#5C5A52" letter-spacing="2">RANK BY EARLINESS · NOT TRADITION</text>
+      </svg>
+    </div>
+
+    <div class="article">
+      <div class="prose">
+        <p>I've sat in the CFO seat at three operations and on the board of two more. The first thing every new CFO does is ask for the dashboard. The second thing is realize the dashboard is reporting last quarter. By the time Days in A/R moves, the cause was 45 days ago and the people responsible are working on something else.</p>
+        <p>This is not a controversial idea — every operator I respect agrees. But almost no RCM dashboard in production today has been redesigned around it. Below is the set we use at Revify, in the order we look at them on Monday morning.</p>
+
+        <h2>1. Hours-to-Determination (HTD)</h2>
+        <p>Replaces: <em>Days to bill, days to charge.</em></p>
+        <p>HTD is the median time from service rendered to a defensible billing determination — code, modifiers, payer, expected reimbursement, all locked. Not submitted. Just <strong>decided.</strong> We aim for under 6 hours. Most practices we onboard sit at 38–72.</p>
+        <div class="callout"><div class="lbl">Why it matters</div><p>Every hour of delay between service and determination is an hour where the chart is degrading in the coder's memory, the encounter context is being lost, and the documentation feedback loop to the provider is widening.</p></div>
+
+        <h2>2. First-Pass-Yield in dollars</h2>
+        <p>Replaces: <em>Clean-claim rate (%).</em></p>
+        <p>CCR is a percent. <strong>Dollars don't care about percent.</strong> A 96% clean-claim rate that's flunking on $80K cardiology cases is worse than 91% on $200 sick visits. We track FPY in dollars, weighted by claim value, and we trend it daily.</p>
+
+        <h2>3. Denial Half-Life</h2>
+        <p>Replaces: <em>Denial rate.</em></p>
+        <p>Half-life is the median number of days between a denial landing and a final adjudication (paid, written off, or appealed-and-resolved). Industry median: <code>47</code>. Best-in-class human teams: <code>22</code>. With agent-driven appeal generation: <strong>9</strong>. The compounding effect on cash conversion is enormous.</p>
+
+        <h2>4. Cost-to-Collect-Per-Dollar (CPD)</h2>
+        <p>Replaces: <em>Cost-to-collect (%).</em></p>
+        <p>The percent metric hides specialty drift. CPD breaks cost down per dollar of net collections, by service line, monthly. The minute orthopedic CPD diverges from primary-care CPD, you have a contract issue or a coding issue, and you have it before the quarter closes.</p>
+
+        <h2>5. Agent Confidence Distribution</h2>
+        <p>Replaces: <em>(nothing — this didn't exist before).</em></p>
+        <p>For each automated determination, we record the agent's confidence score (calibrated, not vibes). The distribution is the leading indicator of <em>everything</em>. A bimodal collapse — too many high-confidence and too many human-flag-required, with nothing in the middle — means a payer policy just changed and your system hasn't ingested it yet. We catch policy changes 6–11 days before payer announcements hit our inbox.</p>
+
+        <div class="pullquote">The dashboard isn't a report card. It's a stethoscope.<span class="at">— A.P.</span></div>
+
+        <h2>What we stopped tracking</h2>
+        <ul>
+          <li><strong>Total claims processed.</strong> Vanity. Doesn't tell you anything you didn't already know from collections.</li>
+          <li><strong>Provider productivity.</strong> Wrong unit. We track <em>determination</em> productivity instead — the cycle ends when the chart is locked, not when the patient leaves.</li>
+          <li><strong>BPO SLA adherence.</strong> Once we replaced the BPO, the SLA stopped existing. The KPI didn't translate.</li>
+        </ul>
+
+        <h2>How to roll this out</h2>
+        <p>Don't try to ship five new metrics on Monday. Pick one — we recommend Denial Half-Life — and run it parallel to your existing dashboard for a quarter. The conversation you'll have with your team about why the new number is moving and the old number isn't yet is, by itself, worth the rollout. The other four follow naturally.</p>
+
+        <div class="callout"><div class="lbl">Resource</div><p>Editable spreadsheet template for all five KPIs, with the SQL to pull each from a typical EHR/claims warehouse. <a href="insights.html">Download from /insights →</a></p></div>
+      </div>
+
+      <section class="related"><h4>Keep reading</h4><div class="related-grid">
+        <a href="post-eligibility.html"><span class="tag">Cover · 14 min</span><h5>Why 70% of denials originate at the front desk.</h5></a>
+        <a href="post-offshore.html"><span class="tag">Op-ed · 11 min</span><h5>The offshore RCM model is over. Here's the math.</h5></a>
+      </div></section>
+
+      <section class="endcap">
+        <h2 class="h-1">See your numbers <em style="color:var(--fg-3);">in our format.</em></h2>
+        <p style="color:var(--fg-2);max-width:520px;margin:0 auto 32px;">Free 30-day shadow run. We translate your last 90 days into the leading metrics above.</p>
+        <a href="contact.html" class="btn btn-primary">Book a demo →</a>
+      </section>
+    </div>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><div class="logo" style="margin-bottom:16px;"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></div><p style="color:var(--fg-3);max-width:340px;font-size:13px;line-height:1.6;">The AI-native revenue cycle. Bastrop, Texas.</p></div>
+    <div><h5>Product</h5><ul><li><a href="agents.html">Agents</a></li><li><a href="platform.html">Platform</a></li><li><a href="outcomes.html">Outcomes</a></li></ul></div>
+    <div><h5>GetMax stack</h5><ul><li><a href="https://portal.getmaxhealthcare.com">portal.getmaxhealthcare.com</a></li><li><a href="https://icdintel.getmaxhealthcare.com">icdintel.getmaxhealthcare.com</a></li><li><a href="https://getmaxglobal.com">getmaxglobal.com</a></li></ul></div>
+    <div><h5>Company</h5><ul><li><a href="team.html">Team</a></li><li><a href="company.html">About</a></li><li><a href="contact.html">Book demo</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 RevifyRCM, Inc.</span><span class="mono">SOC 2 · HIPAA</span></div>
+</footer>
+<script src="nav.js"></script>
+<script src="footer.js"></script>
+<script src="chat-widget.js"></script>
+</body>
+</html>

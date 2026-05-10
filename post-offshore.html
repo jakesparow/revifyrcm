@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The offshore RCM model is over. Here's the math. — RevifyRCM Insights</title>
+<meta name="description" content="A frank look at Manila floor economics, attrition, and why one coding agent now equals forty FTEs. Op-ed by Amanda Perez." />
+<meta name="theme-color" content="#0A0B0E" />
+<link rel="canonical" href="https://revifyrcm.com/post-offshore.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The offshore RCM model is over. Here's the math." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="post-styles.css" />
+</head>
+<body>
+<a id="skip-link" href="#main" class="skip-link">Skip to content</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></a>
+    <div class="nav-links"><a href="agents.html">Agents</a><a href="outcomes.html">Outcomes</a><a href="platform.html">Platform</a><a href="team.html">Team</a><a href="insights.html" class="active">Insights</a><a href="contact.html">Contact</a><a href="company.html">Company</a></div>
+    <div class="nav-cta"><a href="company.html" class="btn btn-ghost btn-sm">Sign in</a><a href="contact.html" class="btn btn-primary btn-sm">Book a demo →</a></div>
+  </div>
+</nav>
+
+<main id="main" class="page">
+  <article>
+    <header class="article-hero container">
+      <div class="crumbs"><a href="insights.html">Insights</a> · Op-ed · 11 min read</div>
+      <h1>The offshore RCM model is over. Here's the math.</h1>
+      <p class="lede">A frank look at Manila floor economics, attrition, and why the unit economics tip the moment one coding agent equals forty FTEs.</p>
+      <div class="byline"><div class="av" style="background:linear-gradient(135deg,#FF6B3D,#C44A26);">AP</div><div class="meta"><strong>Amanda Perez</strong> · Co-founder & CEO · Mar 22, 2026</div></div>
+    </header>
+
+    <div class="cover-art container">
+      <svg viewBox="0 0 1100 540" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1100" height="540" fill="#0F1116"/>
+        <g opacity="0.4" fill="#C7FF3F"><circle cx="200" cy="120" r="2"/><circle cx="280" cy="140" r="2.5"/><circle cx="380" cy="100" r="2"/><circle cx="490" cy="130" r="3"/><circle cx="600" cy="110" r="2.5"/><circle cx="710" cy="140" r="2"/><circle cx="820" cy="120" r="3"/><circle cx="920" cy="135" r="2"/></g>
+        <g font-family="JetBrains Mono, monospace" font-size="14" fill="#5C5A52">
+          <text x="100" y="240">40 FTE  ·  $1.2M / yr  ·  18% attrition  ·  6 hrs / FTE / day</text>
+          <line x1="100" y1="270" x2="1000" y2="270" stroke="#2A2D34" stroke-width="1"/>
+          <text x="100" y="320" fill="#C7FF3F">1 AGENT  ·  $84K / yr  ·  0% attrition  ·  86,400 sec / day</text>
+        </g>
+        <text x="100" y="430" font-family="Geist" font-size="92" fill="#F4F2EE" font-weight="500" letter-spacing="-3">14× <tspan fill="#C7FF3F" font-style="italic" font-size="56">cost gap.</tspan></text>
+        <text x="100" y="475" font-family="JetBrains Mono, monospace" font-size="13" fill="#5C5A52" letter-spacing="2">CODING + AR FOLLOW-UP · ANNUALIZED · POST-DEPLOYMENT YEAR 1</text>
+      </svg>
+    </div>
+
+    <div class="article">
+      <div class="prose">
+        <p>I spent eight years of my career building offshore RCM operations. I have stood on a Manila floor at 11pm watching 200 coders process the day's American claims under fluorescent lights. I know the leaders who run those operations. They are competent, hardworking, and they are about to be in trouble.</p>
+
+        <p>This is not a triumphalist article. It's a math article. The offshore model worked because labor arbitrage worked. American RCM cost <code>$32–48</code> per hour fully loaded; Manila cost <code>$8–14</code>. A 3.5x gap is enough to overcome time zones, attrition, and the friction of managing 8,000 miles away. The economics held for fifteen years.</p>
+
+        <p>The cost of an LLM-driven coding determination, in 2026, is approximately <strong>$0.18</strong>. The cost of a human coding determination, anywhere, is between <code>$2.40</code> and <code>$8.00</code>. The arbitrage is no longer 3.5x. It's 13–44x.</p>
+
+        <h2>The math, in detail</h2>
+        <p>A typical mid-sized practice processes 220,000 claims per year. Coding labor on those claims at the Manila rate works out to roughly <code>$890K</code> annually, fully loaded. Coding the same claims with an agent — including human review on 8% of cases that get flagged — comes in at roughly <code>$84K</code>.</p>
+
+        <table class="data-table">
+          <thead><tr><th>Component</th><th>Manila (40 FTE)</th><th>Agent + 4 reviewers</th></tr></thead>
+          <tbody>
+            <tr><td>Labor</td><td class="num">$890K</td><td class="num">$340K</td></tr>
+            <tr><td>Inference / compute</td><td class="num">—</td><td class="num">$39K</td></tr>
+            <tr><td>QA / supervisor overhead</td><td class="num">$190K</td><td class="num">$28K</td></tr>
+            <tr><td>Attrition / hiring</td><td class="num">$112K</td><td class="num">$0</td></tr>
+            <tr><td>Travel / management</td><td class="num">$48K</td><td class="num">$0</td></tr>
+            <tr><td class="hi">Total</td><td class="num">$1.24M</td><td class="num">$407K</td></tr>
+          </tbody>
+        </table>
+
+        <p>Three notes on this table. First, we kept the headcount honest — there are still humans in our model, just <strong>4 instead of 40</strong>, and they're doing review and exception handling, not first-pass coding. Second, the agent number includes the 8% human-flag rate. Third, this is annualized after a 3-month stabilization period. Month 1 is more expensive on the agent side; year 2 onward is cheaper.</p>
+
+        <div class="pullquote">Labor arbitrage was a phase. Algorithmic arbitrage is the next phase. There will not be a third.<span class="at">— A.P.</span></div>
+
+        <h2>What the offshore vendors are doing about it</h2>
+        <p>I talk to leaders at every major offshore vendor. They know. The smarter ones are doing three things in parallel:</p>
+        <ol>
+          <li><strong>Building agent capability internally.</strong> R1, Omega, Access — they all have skunkworks. Whether they can ship products that compete with companies built native is an open question.</li>
+          <li><strong>Repositioning as managed services.</strong> "We'll run the agents for you." This is a defensible position for clients who don't want to operate the infra themselves. It also has the structural problem that the underlying cost of inference keeps falling, which compresses the vendor margin every year.</li>
+          <li><strong>Climbing the value chain.</strong> Some are repositioning toward consulting, change management, and analytics — work that's harder to automate. This is real but addresses a smaller TAM.</li>
+        </ol>
+
+        <h2>What the practices should do about it</h2>
+        <p>If you're a CFO with an existing BPO contract, the right move is not to rip and replace tomorrow. The right move is to do four things in sequence:</p>
+        <ul>
+          <li><strong>Audit your current spend</strong> per claim, per service line, per vendor. You will find waste.</li>
+          <li><strong>Run an agent pilot</strong> on a single workflow — eligibility or denial triage are the easiest to scope. Ninety days. Read out the numbers.</li>
+          <li><strong>Renegotiate the BPO contract</strong> using the pilot data. Most vendors will hold price on the assumption that change is hard. Show them you've done the change on a slice.</li>
+          <li><strong>Plan a 12-month transition</strong> for the workflows where the math is unambiguous. Keep the BPO for the workflows where it isn't.</li>
+        </ul>
+
+        <h2>What this means for the people on those floors</h2>
+        <p>I want to be careful here, because the human side of this transition matters. The offshore RCM industry employs north of 350,000 people globally. Not all of those jobs go away. The ones that go away first are the lowest-skilled, highest-volume — exactly the ones that should never have existed at the volume they did.</p>
+        <p>The jobs that don't go away are the appeals work, the carve-out interpretation, the patient-facing collections, and the QA layer that makes agent systems trustworthy. These are higher-skilled jobs, they pay better, and there are not enough of them to absorb the displaced labor. That's the truth. The industry should be honest about it.</p>
+
+        <h2>What we're building toward</h2>
+        <p>At Revify, we don't claim agents replace humans entirely. We claim they replace the <em>volume</em> jobs and create new <em>judgment</em> jobs at a 4-to-40 ratio. The companies that win the next decade in RCM will be the ones who build that judgment layer well — not the ones who automate the longest.</p>
+
+        <p>The offshore model is over as a mass-market unit-economics story. It will persist as a niche for another five to ten years. Then it will look the way mainframe operators look now — competent, valuable in narrow contexts, and completely out of the conversation.</p>
+      </div>
+
+      <section class="related"><h4>Keep reading</h4><div class="related-grid">
+        <a href="post-eligibility.html"><span class="tag">Cover · 14 min</span><h5>Why 70% of denials originate at the front desk.</h5></a>
+        <a href="post-underpayment.html"><span class="tag">Playbook · 9 min</span><h5>Underpayment detection for ortho ASCs.</h5></a>
+      </div></section>
+
+      <section class="endcap">
+        <h2 class="h-1">Run the numbers <em style="color:var(--fg-3);">on your operation.</em></h2>
+        <p style="color:var(--fg-2);max-width:520px;margin:0 auto 32px;">Free 30-day shadow run. Side-by-side BPO vs. agent economics, in writing.</p>
+        <a href="contact.html" class="btn btn-primary">Book a demo →</a>
+      </section>
+    </div>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><div class="logo" style="margin-bottom:16px;"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></div><p style="color:var(--fg-3);max-width:340px;font-size:13px;line-height:1.6;">The AI-native revenue cycle. Bastrop, Texas.</p></div>
+    <div><h5>Product</h5><ul><li><a href="agents.html">Agents</a></li><li><a href="platform.html">Platform</a></li><li><a href="outcomes.html">Outcomes</a></li></ul></div>
+    <div><h5>GetMax stack</h5><ul><li><a href="https://portal.getmaxhealthcare.com">portal.getmaxhealthcare.com</a></li><li><a href="https://icdintel.getmaxhealthcare.com">icdintel.getmaxhealthcare.com</a></li><li><a href="https://getmaxglobal.com">getmaxglobal.com</a></li></ul></div>
+    <div><h5>Company</h5><ul><li><a href="team.html">Team</a></li><li><a href="company.html">About</a></li><li><a href="contact.html">Book demo</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 RevifyRCM, Inc.</span><span class="mono">SOC 2 · HIPAA</span></div>
+</footer>
+<script src="nav.js"></script>
+<script src="footer.js"></script>
+<script src="chat-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Company — RevifyRCM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero { padding: 80px 0 60px; }
+  .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+  @media (max-width: 880px) { .principles { grid-template-columns: 1fr; } }
+  .principle { background: var(--ink); padding: 36px; }
+  .principle .num { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: .14em; }
+  .principle h3 { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: -0.02em; margin: 12px 0 12px; }
+  .principle p { color: var(--fg-2); font-size: 15px; line-height: 1.6; margin: 0; }
+
+  .demo-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
+  @media (max-width: 880px) { .demo-grid { grid-template-columns: 1fr; } }
+  .form-card { background: var(--ink-2); border: 1px solid var(--line-2); border-radius: var(--r-lg); padding: 32px; }
+  .form-card label { display: block; font-family: var(--mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .14em; margin-bottom: 8px; }
+  .form-card input, .form-card select, .form-card textarea { width: 100%; background: var(--ink); border: 1px solid var(--line-2); border-radius: 8px; padding: 12px 14px; color: var(--fg); font-family: var(--sans); font-size: 14px; outline: 0; margin-bottom: 18px; transition: border-color .15s; }
+  .form-card input:focus, .form-card select:focus, .form-card textarea:focus { border-color: var(--accent); }
+  .form-card .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-card button { width: 100%; }
+
+  .map { background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 32px; }
+  .map .row { display: flex; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .map .row:last-child { border: 0; }
+  .map .row b { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.02em; }
+  .map .row span { font-family: var(--mono); font-size: 12px; color: var(--fg-3); }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></a>
+    <div class="nav-links">
+      <a href="agents.html">Agents</a>
+      <a href="outcomes.html">Outcomes</a>
+      <a href="platform.html">Platform</a>
+      <a href="company.html" class="active">Company</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="#demo" class="btn btn-primary btn-sm">Book a demo →</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Company</span>
+      <h1 class="h-display" style="max-width:1100px;">We're building the <em>operating company</em> for the AI-native revenue cycle.</h1>
+      <p class="lede">RevifyRCM is part of GetMax Healthcare — a single team that owns the agents, the platform, and the operations. We don't license, white-label, or resell. We're accountable for the dollar.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="eyebrow">Operating principles</span>
+      <h2 class="h-1" style="margin:16px 0 32px;max-width:760px;">Five non-negotiables.</h2>
+      <div class="principles">
+        <div class="principle">
+          <span class="num">01</span>
+          <h3>Outcome over hours.</h3>
+          <p>We don't bill for FTEs, claims, or seats. If your collections don't move, neither does our invoice. Pricing is the strongest forcing function for quality, so we wrote it into our DNA.</p>
+        </div>
+        <div class="principle">
+          <span class="num">02</span>
+          <h3>Agent-first, human-finished.</h3>
+          <p>Agents do the volume. Humans handle exceptions, judgment calls, and provider relationships. Both work the same portal. Both are accountable to the same SLA.</p>
+        </div>
+        <div class="principle">
+          <span class="num">03</span>
+          <h3>Compounding knowledge.</h3>
+          <p>Every claim improves the next one. Every denial trains the appeal. The data your last vendor threw away is the data we capture and reuse — under your control, on your tenant.</p>
+        </div>
+        <div class="principle">
+          <span class="num">04</span>
+          <h3>Open ledger.</h3>
+          <p>Every agent prompt, model, decision, and action is logged in your portal — replayable, exportable, defensible. No black boxes. Auditors love us.</p>
+        </div>
+        <div class="principle">
+          <span class="num">05</span>
+          <h3>One throat to choke.</h3>
+          <p>Coding, eligibility, denials, AR, patient pay, contracting — under one roof, one P&amp;L, one SLA. Stop coordinating five vendors. Start running one team.</p>
+        </div>
+        <div class="principle">
+          <span class="num">06</span>
+          <h3>U.S.-grounded operations.</h3>
+          <p>Engineered and operated from the United States. Provider-state-licensed humans where the work calls for them. No tribal knowledge attriting offshore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="eyebrow">Footprint</span>
+      <h2 class="h-1" style="margin:16px 0 32px;max-width:760px;">38 active clients. <em style="color:var(--fg-3)">Five states. Growing.</em></h2>
+      <div class="map">
+        <div class="row"><b>Texas</b><span>14 clients · Houston, Austin, Dallas, San Antonio</span></div>
+        <div class="row"><b>North Carolina</b><span>9 clients · Charlotte, Raleigh, Asheville</span></div>
+        <div class="row"><b>Florida</b><span>7 clients · Miami, Tampa, Orlando</span></div>
+        <div class="row"><b>Georgia</b><span>5 clients · Atlanta metro</span></div>
+        <div class="row"><b>California</b><span>3 clients · LA, Bay Area</span></div>
+        <div class="row"><b>Specialties</b><span>Primary care, ortho, cardiology, behavioral health, ASCs, specialty hospitals</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="container">
+      <span class="eyebrow">Book a demo</span>
+      <h2 class="h-1" style="margin:16px 0 32px;max-width:760px;">A 30-minute call. <em style="color:var(--fg-3)">A signed ROI in 5 days.</em></h2>
+      <div class="demo-grid">
+        <div>
+          <p class="lede">Tell us your specialty, payer mix, and current AR days. We'll send a tailored demo — and if you can share a 90-day claim file, a contract-grade ROI projection in writing.</p>
+          <div style="margin-top:32px;display:grid;gap:16px;font-size:14px;color:var(--fg-2);">
+            <div style="display:flex;gap:14px;"><span style="color:var(--accent);font-family:var(--mono);font-size:11px;">01</span> 30-min discovery + live agent demo</div>
+            <div style="display:flex;gap:14px;"><span style="color:var(--accent);font-family:var(--mono);font-size:11px;">02</span> Optional: 90-day claim file under signed BAA</div>
+            <div style="display:flex;gap:14px;"><span style="color:var(--accent);font-family:var(--mono);font-size:11px;">03</span> Written ROI projection within 5 business days</div>
+            <div style="display:flex;gap:14px;"><span style="color:var(--accent);font-family:var(--mono);font-size:11px;">04</span> 30-day shadow run, free of charge</div>
+          </div>
+        </div>
+        <div class="form-card">
+          <form onsubmit="event.preventDefault(); this.querySelector('button').textContent = '✓ Submitted — we\\'ll be in touch';">
+            <div class="row">
+              <div><label>First name</label><input type="text" required placeholder="Jane" /></div>
+              <div><label>Last name</label><input type="text" required placeholder="Doe" /></div>
+            </div>
+            <label>Work email</label>
+            <input type="email" required placeholder="jane@yourpractice.com" />
+            <label>Organization</label>
+            <input type="text" required placeholder="Your group / hospital" />
+            <div class="row">
+              <div><label>Role</label>
+                <select><option>CFO</option><option>VP Revenue Cycle</option><option>Practice Owner</option><option>Director of Billing</option><option>COO</option><option>Other</option></select>
+              </div>
+              <div><label>Annual collections</label>
+                <select><option>&lt; $5M</option><option>$5–25M</option><option>$25–100M</option><option>$100M+</option></select>
+              </div>
+            </div>
+            <label>What's slowing you down?</label>
+            <textarea rows="3" placeholder="Denials? AR days? Vendor cost? Coding accuracy?"></textarea>
+            <button type="submit" class="btn btn-primary">Request demo →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="careers">
+    <div class="container" style="text-align:center;">
+      <span class="eyebrow">Careers</span>
+      <h2 class="h-display" style="margin:24px 0 0;">Build the operating company<br/><em>for AI-native healthcare.</em></h2>
+      <p class="lede" style="margin:32px auto 32px;text-align:center;max-width:680px;">We're hiring across RCM operations, ML engineering, payer policy, clinical informatics, and revenue. U.S.-based, in-person collaboration in Texas hubs.</p>
+      <a href="mailto:careers@revifyrcm.com" class="btn btn-ghost">careers@revifyrcm.com →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><div class="logo" style="margin-bottom:16px;"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></div><p style="color:var(--fg-3);max-width:300px;font-size:13px;line-height:1.6;">The AI-native revenue cycle.</p></div>
+    <div><h5>Product</h5><ul><li><a href="agents.html">Agents</a></li><li><a href="platform.html">Platform</a></li><li><a href="outcomes.html">Outcomes</a></li></ul></div>
+    <div><h5>Stack</h5><ul><li><a href="https://portal.getmaxhealthcare.com">portal.getmaxhealthcare.com</a></li><li><a href="https://icdintel.getmaxhealthcare.com">icdintel.getmaxhealthcare.com</a></li><li><a href="https://getmaxsolutions.com">getmaxsolutions.com</a></li></ul></div>
+    <div><h5>Company</h5><ul><li><a href="company.html">About</a></li><li><a href="company.html#demo">Book demo</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 RevifyRCM, Inc.</span><span class="mono">SOC 2 · HIPAA</span></div>
+</footer>
+</body>
+</html>

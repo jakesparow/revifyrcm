@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RevifyRCM — The AI-native revenue cycle for hospitals and practices</title>
+<meta name="description" content="An AI workforce that runs eligibility, coding, claims, denials, and AR follow-up — paid only on outcomes. Built for U.S. hospitals, multi-specialty groups, and independent practices. HIPAA, SOC 2." />
+<meta name="keywords" content="medical billing, revenue cycle management, AI RCM, healthcare claims, denial management, prior authorization, HIPAA, SOC 2" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<link rel="canonical" href="https://revifyrcm.com/" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="RevifyRCM — The AI-native revenue cycle" />
+<meta property="og:description" content="Eligibility to cash, run by agents. Outcome-based pricing. HIPAA, SOC 2, HITRUST." />
+<meta property="og:image" content="https://revifyrcm.com/og.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"RevifyRCM","url":"https://revifyrcm.com","logo":"https://revifyrcm.com/og.svg","description":"AI-native revenue cycle management for U.S. healthcare.","founder":{"@type":"Person","name":"Amanda Perez"},"address":{"@type":"PostalAddress","addressLocality":"Bastrop","addressRegion":"TX","addressCountry":"US"},"sameAs":["https://www.linkedin.com/company/revifyrcm","https://twitter.com/revifyrcm"]}
+</script>
+<style>
+  /* Hero */
+  .hero { padding: 56px 0 88px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
+  @media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(48px, 6.4vw, 92px); line-height: 0.98; letter-spacing: -0.025em; margin: 18px 0 26px; color: var(--ink); }
+  .hero h1 em { font-style: italic; color: var(--ink-3); }
+  .hero .lede { font-size: clamp(17px, 1.5vw, 20px); color: var(--fg-2); line-height: 1.55; max-width: 56ch; margin-bottom: 32px; }
+  .hero .ctas { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .hero .ctas .who { font-size: 13px; color: var(--fg-3); margin-left: 8px; }
+  .hero-art { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-xl); padding: 24px; box-shadow: var(--shadow-card); position: relative; overflow: hidden; }
+  .hero-art .art-tab { display: flex; gap: 6px; margin-bottom: 18px; }
+  .hero-art .art-tab span { padding: 4px 10px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); border-radius: 4px; border: 1px solid var(--line); }
+  .hero-art .art-tab span.on { background: var(--paper-2); color: var(--paper); border-color: var(--ink); }
+  .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .tl-step { display: flex; flex-direction: column; gap: 8px; }
+  .tl-step .head { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+  .tl-step .node { height: 56px; border-radius: 10px; background: var(--paper-2); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; position: relative; }
+  .tl-step .node::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); animation: tl-pulse 2s ease-in-out infinite; }
+  @keyframes tl-pulse { 0%, 100% { box-shadow: 0 0 0 4px var(--accent-soft); } 50% { box-shadow: 0 0 0 8px transparent; } }
+  .tl-step:nth-child(2) .node::after { animation-delay: 0.4s; }
+  .tl-step:nth-child(3) .node::after { animation-delay: 0.8s; }
+  .tl-step:nth-child(4) .node::after { animation-delay: 1.2s; }
+  .tl-step:nth-child(5) .node::after { animation-delay: 1.6s; }
+  .tl-step .label { font-family: var(--display); font-size: 14px; font-weight: 500; color: var(--ink); letter-spacing: -0.008em; }
+  .tl-step .sub { font-family: var(--mono); font-size: 9px; color: var(--ink-3); letter-spacing: 0.06em; }
+  .hero-art .art-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; }
+  .hero-art .art-foot .live { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); }
+  .hero-art .art-foot .live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: tl-pulse 1.6s ease-in-out infinite; }
+
+  /* Workflow */
+  .workflow-wrap { padding: 96px 0; }
+  .wf-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 56px; flex-wrap: wrap; }
+  .wf-head h2 { font-family: var(--display); font-size: clamp(40px, 5vw, 68px); line-height: 1.02; letter-spacing: -0.022em; margin: 12px 0 0; max-width: 16ch; font-weight: 400; }
+  .wf-head h2 em { font-style: italic; color: var(--ink-3); }
+  .wf-head p { color: var(--fg-2); font-size: 16px; line-height: 1.55; max-width: 38ch; margin: 0; }
+  .wf-canvas { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-xl); padding: 48px 44px; position: relative; overflow: hidden; }
+  .wf-stages { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 36px; }
+  .wf-stage { font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.14em; text-transform: uppercase; padding: 6px 0; border-top: 1px solid var(--line-2); }
+  .wf-canvas svg.flow { width: 100%; height: 280px; }
+  .wf-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); flex-wrap: wrap; gap: 12px; }
+  .wf-legend { display: flex; gap: 24px; font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; }
+  .wf-legend .key { display: inline-flex; align-items: center; gap: 8px; }
+  .wf-legend .key::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .wf-legend .key.k2::before { background: var(--sage); }
+  .wf-legend .key.k3::before { background: var(--gold); }
+
+  /* Solutions / Who it's for */
+  .sol-section { padding: 96px 0; border-top: 1px solid var(--line); }
+  .sol-head { margin-bottom: 48px; max-width: 60ch; }
+  .sol-head h2 { font-family: var(--display); font-size: clamp(36px, 4.5vw, 60px); line-height: 1.04; letter-spacing: -0.022em; margin: 12px 0 16px; font-weight: 400; }
+  .sol-head h2 em { font-style: italic; color: var(--ink-3); }
+  .sol-head p { color: var(--fg-2); font-size: 17px; line-height: 1.55; margin: 0; }
+
+  /* Editorial column */
+  .ed-section { padding: 96px 0; border-top: 1px solid var(--line); }
+  .ed-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+  @media (max-width: 980px) { .ed-grid { grid-template-columns: 1fr; gap: 48px; } }
+  .ed-grid h2 { font-family: var(--display); font-size: clamp(40px, 5vw, 64px); line-height: 1.02; letter-spacing: -0.022em; margin: 12px 0 0; font-weight: 400; }
+  .ed-grid h2 em { font-style: italic; color: var(--ink-3); }
+  .ed-body { font-family: var(--display); font-size: 19px; line-height: 1.65; color: var(--fg); }
+  .ed-body p { margin: 0 0 18px; }
+  .ed-body p:first-child::first-letter { font-family: var(--display); font-size: 4.6em; line-height: 0.85; float: left; padding: 8px 14px 0 0; color: var(--accent); font-weight: 500; }
+  .ed-body p strong { color: var(--ink); font-weight: 500; }
+
+  /* Case studies */
+  .case-section { padding: 96px 0; border-top: 1px solid var(--line); }
+  .case-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 40px; flex-wrap: wrap; }
+  .case-head h2 { font-family: var(--display); font-size: clamp(36px, 4.5vw, 56px); line-height: 1.04; letter-spacing: -0.022em; margin: 12px 0 0; font-weight: 400; }
+  .case-head h2 em { font-style: italic; color: var(--ink-3); }
+
+  /* Booking */
+  .book-section { padding: 96px 0; border-top: 1px solid var(--line); }
+
+  /* Mobile nav */
+  @media (max-width: 980px) {
+    .nav-links { display: none; }
+    .nav-cta .btn-ghost { display: none; }
+  }
+</style>
+</head>
+<body data-screen-label="00 Home">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="topbar">
+  <span>📄 New 2026 RCM Outlook — denials, AI agents, and what changed</span>
+  <span class="sep">·</span>
+  <a href="insights.html">Read the report →</a>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="lo-mark"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#F7F4EE" d="M6 4h7.5a4.5 4.5 0 014.5 4.5c0 1.95-1.24 3.62-2.97 4.24L18.5 20H15.3l-3-6.6H9V20H6V4zm3 2.7v4h4.5a2 2 0 100-4H9z"/></svg></span>
+      Revify<span class="dim">RCM</span>
+    </a>
+
+    <div class="nav-links">
+      <div class="nav-item">
+        <a class="nav-link">Product <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5l3 3 3-3"/></svg></a>
+        <div class="mega">
+          <div class="mega-grid">
+            <div class="mega-col">
+              <h6>The agent workforce</h6>
+              <a class="mega-link" href="agents.html"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 12h6m6 0h6M12 3v6m0 6v6"/></svg></span><div><div class="t">14 production agents</div><div class="d">From eligibility to cash. Always-on.</div></div></a>
+              <a class="mega-link" href="platform.html"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span><div><div class="t">Platform &amp; integrations</div><div class="d">Epic, Athena, eCW, Tebra. Bi-directional.</div></div></a>
+              <a class="mega-link" href="https://icdintel.getmaxhealthcare.com" target="_blank"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span><div><div class="t">ICD Intel</div><div class="d">Autonomous medical coding.</div></div></a>
+              <a class="mega-link" href="#"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 00-3 3v7a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v3"/></svg></span><div><div class="t">Voice agents</div><div class="d">Payer IVR navigation, patient outreach.</div></div></a>
+            </div>
+            <div class="mega-feat">
+              <div class="label">Featured</div>
+              <h5>Outcomes &amp; pricing</h5>
+              <p>96% clean-claim rate. 22-day AR. Paid only on what we collect.</p>
+              <a href="outcomes.html" class="arr">See the numbers →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link">Solutions <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5l3 3 3-3"/></svg></a>
+        <div class="mega">
+          <div class="mega-grid">
+            <div class="mega-col">
+              <h6>By organization</h6>
+              <a class="mega-link" href="#"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h6M9 13h6M9 17h6"/></svg></span><div><div class="t">For hospitals &amp; health systems</div><div class="d">100+ provider organizations.</div></div></a>
+              <a class="mega-link" href="#"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M3 21v-2a6 6 0 016-6h6a6 6 0 016 6v2"/></svg></span><div><div class="t">For independent practices</div><div class="d">Solo &amp; small group ownership.</div></div></a>
+              <a class="mega-link" href="#"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 4 4 5-5"/></svg></span><div><div class="t">For RCM companies</div><div class="d">White-label our agents.</div></div></a>
+              <a class="mega-link" href="#"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><div><div class="t">For specialty groups</div><div class="d">Cardiology, ortho, oncology, behavioral.</div></div></a>
+            </div>
+            <div class="mega-feat">
+              <div class="label">Case study</div>
+              <h5>$612K recovered</h5>
+              <p>How a 24-provider orthopedic group fixed underpayments in 90 days.</p>
+              <a href="#cases" class="arr">Read the case study →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="nav-link" href="#cases">Customers</a>
+      <a class="nav-link" href="#pricing">Pricing</a>
+
+      <div class="nav-item">
+        <a class="nav-link">Resources <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5l3 3 3-3"/></svg></a>
+        <div class="mega">
+          <div class="mega-grid">
+            <div class="mega-col">
+              <h6>Learn</h6>
+              <a class="mega-link" href="insights.html"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h10v18l-5-3-5 3zM12 4h10v18l-5-3-5 3z"/></svg></span><div><div class="t">Insights</div><div class="d">Long-form on AI, denials, and the cycle.</div></div></a>
+              <a class="mega-link" href="#"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21"/></svg></span><div><div class="t">Webinars</div><div class="d">Monthly with practice leaders.</div></div></a>
+              <a class="mega-link" href="#"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg></span><div><div class="t">ROI calculator</div><div class="d">What a 1-day faster AR is worth.</div></div></a>
+              <a class="mega-link" href="security.html"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><div class="t">Security &amp; HIPAA</div><div class="d">SOC 2, BAA, subprocessors.</div></div></a>
+            </div>
+            <div class="mega-feat">
+              <div class="label">New · this week</div>
+              <h5>Monday Read-out</h5>
+              <p>One paragraph on what shifted in healthcare revenue, every Monday.</p>
+              <a href="insights.html" class="arr">Subscribe →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-link">Company <svg class="caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5l3 3 3-3"/></svg></a>
+        <div class="mega">
+          <div class="mega-grid">
+            <div class="mega-col">
+              <h6>Who we are</h6>
+              <a class="mega-link" href="company.html"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg></span><div><div class="t">About</div><div class="d">Bastrop, Texas. Built by operators.</div></div></a>
+              <a class="mega-link" href="team.html"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M3 21v-1a5 5 0 015-5h2a5 5 0 015 5v1M16 4a4 4 0 010 8M21 21v-1a5 5 0 00-3-4.6"/></svg></span><div><div class="t">Team</div><div class="d">Amanda, Sriram, Greg + 47 humans.</div></div></a>
+              <a class="mega-link" href="#"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><div><div class="t">Careers</div><div class="d">Engineering · operations · clinical.</div></div></a>
+              <a class="mega-link" href="contact.html"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1 0 2 1 2 2v12c0 1-1 2-2 2H4c-1 0-2-1-2-2V6c0-1 1-2 2-2z"/><path d="M22 6L12 13 2 6"/></svg></span><div><div class="t">Contact</div><div class="d">Talk to a human in &lt; 1 day.</div></div></a>
+            </div>
+            <div class="mega-feat">
+              <div class="label">Hiring · 6 roles</div>
+              <h5>Build with us in Bastrop or Chennai</h5>
+              <p>Healthcare engineers, RCM operators, clinical reviewers.</p>
+              <a href="#" class="arr">See open roles →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-cta">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg id="t-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <a href="#" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="#book" class="btn btn-primary btn-sm">Book a demo <span class="arrow">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow-row">
+            <span class="pill"><span class="pill-tag">New</span> ICD Intel · autonomous coding now in GA</span>
+          </div>
+          <h1>The revenue cycle,<br/>run by <em>agents.</em><br/>Paid on outcomes.</h1>
+          <p class="lede">RevifyRCM is a workforce of always-on AI agents that handles eligibility, prior auth, coding, claims, denials, and AR follow-up — for U.S. hospitals, multi-specialty groups, and independent practices.</p>
+          <div class="ctas">
+            <a href="#book" class="btn btn-primary btn-lg">Book a 30-min demo <span class="arrow">→</span></a>
+            <a href="outcomes.html" class="btn btn-ghost btn-lg">See live outcomes</a>
+            <span class="who">— or talk to Amanda directly</span>
+          </div>
+        </div>
+        <div class="hero-art reveal">
+          <div class="art-tab"><span class="on">Live</span><span>This morning · 09:42 CT</span></div>
+          <div class="timeline">
+            <div class="tl-step"><div class="head">01 · Input</div><div class="node"></div><div class="label">Denial received</div><div class="sub">CO-50 · $1,840</div></div>
+            <div class="tl-step"><div class="head">02 · Retrieve</div><div class="node"></div><div class="label">Memory</div><div class="sub">4,821 sim. claims</div></div>
+            <div class="tl-step"><div class="head">03 · Reason</div><div class="node"></div><div class="label">Reasoning</div><div class="sub">Conf 0.94</div></div>
+            <div class="tl-step"><div class="head">04 · Act</div><div class="node"></div><div class="label">Appeal drafted</div><div class="sub">842 words · 3 cites</div></div>
+            <div class="tl-step"><div class="head">05 · Audit</div><div class="node"></div><div class="label">Open ledger</div><div class="sub">4m 11s · auditable</div></div>
+          </div>
+          <div class="art-foot">
+            <span><span class="live"></span>22 agents running</span>
+            <span>1,427 actions · today</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO WALL -->
+  <section class="logo-wall">
+    <div class="container">
+      <div class="label">Trusted by U.S. providers across 14 specialties · sample customers</div>
+      <div class="grid">
+        <div class="logo-cell">Lone Star Ortho</div>
+        <div class="logo-cell">Capitol Cardiology</div>
+        <div class="logo-cell">Hill Country Health</div>
+        <div class="logo-cell">Bayou Behavioral</div>
+        <div class="logo-cell">North Texas Surgical</div>
+        <div class="logo-cell">Coastal Pediatrics</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAND -->
+  <div class="stat-band">
+    <div class="stat-cell"><div class="label">Clean-claim rate</div><div class="value">96<em>%</em></div><div class="sub">First-pass acceptance across 1.2M claims processed in 2025.</div></div>
+    <div class="stat-cell"><div class="label">Days in AR</div><div class="value">22<em>.6</em></div><div class="sub">Down from 41 days at customer baseline. Within 90 days of go-live.</div></div>
+    <div class="stat-cell"><div class="label">Denial rate</div><div class="value"><em>−</em>42<em>%</em></div><div class="sub">Average reduction in initial denials, payer-mix adjusted.</div></div>
+    <div class="stat-cell"><div class="label">Net collections lift</div><div class="value"><em>+</em>3<em>–</em>9<em>%</em></div><div class="sub">Recovered through underpayment detection and faster appeals.</div></div>
+  </div>
+
+  <!-- WORKFLOW -->
+  <section class="workflow-wrap">
+    <div class="container">
+      <div class="wf-head">
+        <div>
+          <span class="eyebrow">How it works</span>
+          <h2>One revenue cycle.<br/><em>Fourteen agents.</em></h2>
+        </div>
+        <p>Every step from a scheduled appointment to posted cash is owned by a named agent — observable, auditable, and improving claim by claim.</p>
+      </div>
+      <div class="wf-canvas">
+        <div class="wf-stages">
+          <div class="wf-stage">Pre-encounter</div>
+          <div class="wf-stage">Documentation</div>
+          <div class="wf-stage">Submit</div>
+          <div class="wf-stage">Denials &amp; AR</div>
+          <div class="wf-stage">Cash</div>
+        </div>
+        <svg class="flow" viewBox="0 0 1100 280" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="lineG" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stop-color="var(--accent)" stop-opacity="0.12"/>
+              <stop offset="0.5" stop-color="var(--accent)" stop-opacity="0.4"/>
+              <stop offset="1" stop-color="var(--accent)" stop-opacity="0.12"/>
+            </linearGradient>
+          </defs>
+          <path d="M 60 90 C 200 90, 200 180, 340 180 S 480 90, 620 90 S 760 180, 900 180 S 1040 90, 1080 90" fill="none" stroke="url(#lineG)" stroke-width="2"/>
+          <path d="M 60 200 C 200 200, 200 110, 340 110 S 480 200, 620 200 S 760 110, 900 110 S 1040 200, 1080 200" fill="none" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 6"/>
+          <!-- nodes -->
+          <g font-family="Inter" font-size="13" fill="var(--ink)">
+            <g transform="translate(80,90)"><circle r="10" fill="var(--accent)"/><circle r="22" fill="var(--accent)" opacity="0.12"/><text x="0" y="44" text-anchor="middle" font-weight="500">Eligibility</text></g>
+            <g transform="translate(80,200)"><circle r="10" fill="var(--accent)"/><circle r="22" fill="var(--accent)" opacity="0.12"/><text x="0" y="44" text-anchor="middle" font-weight="500">Prior Auth</text></g>
+            <g transform="translate(340,110)"><circle r="10" fill="var(--accent)"/><circle r="22" fill="var(--accent)" opacity="0.12"/><text x="0" y="44" text-anchor="middle" font-weight="500">Coding · ICD Intel</text></g>
+            <g transform="translate(340,200)"><circle r="10" fill="var(--accent)"/><circle r="22" fill="var(--accent)" opacity="0.12"/><text x="0" y="44" text-anchor="middle" font-weight="500">CDI · Charge</text></g>
+            <g transform="translate(620,90)"><circle r="10" fill="var(--accent)"/><circle r="22" fill="var(--accent)" opacity="0.12"/><text x="0" y="44" text-anchor="middle" font-weight="500">Scrubbing</text></g>
+            <g transform="translate(620,200)"><circle r="10" fill="var(--accent)"/><circle r="22" fill="var(--accent)" opacity="0.12"/><text x="0" y="44" text-anchor="middle" font-weight="500">Submit · 47 CHs</text></g>
+            <g transform="translate(900,110)"><circle r="10" fill="var(--accent)"/><circle r="22" fill="var(--accent)" opacity="0.12"/><text x="0" y="44" text-anchor="middle" font-weight="500">Denial Triage</text></g>
+            <g transform="translate(900,200)"><circle r="10" fill="var(--accent)"/><circle r="22" fill="var(--accent)" opacity="0.12"/><text x="0" y="44" text-anchor="middle" font-weight="500">AR · Underpayment</text></g>
+            <g transform="translate(1060,150)"><circle r="11" fill="var(--sage)"/><circle r="22" fill="var(--sage)" opacity="0.18"/><text x="0" y="44" text-anchor="middle" font-weight="500">835 Posting</text></g>
+          </g>
+        </svg>
+        <div class="wf-foot">
+          <div class="wf-legend">
+            <span class="key">Production agent</span>
+            <span class="key k2">Multi-channel</span>
+            <span class="key k3">Beta</span>
+          </div>
+          <span class="mono">Avg cycle: 4m 11s · Continuous learning enabled</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="sol-section">
+    <div class="container">
+      <div class="sol-head">
+        <span class="eyebrow">Who it's for</span>
+        <h2>Built for the people who <em>actually run</em> the revenue cycle.</h2>
+        <p>Each rollout is sized for your operation. Same agents — different orchestration, contracts, and reporting.</p>
+      </div>
+      <div class="sol-grid">
+        <div class="sol-cell">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h6M9 13h6M9 17h6"/></svg>
+          <div class="meta">For hospitals &amp; systems</div>
+          <h3>Run alongside Epic. Replace the 3am batch.</h3>
+          <p>Federate our agents with your in-house RCM team. Bi-directional Epic / Cerner integration. SSO, audit, role-based access. Quarterly business reviews with named clinical and operations leads.</p>
+          <span class="arr">Talk to enterprise →</span>
+        </div>
+        <div class="sol-cell">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M3 21v-2a6 6 0 016-6h6a6 6 0 016 6v2"/></svg>
+          <div class="meta">For independent practices</div>
+          <h3>Take the back-office back.</h3>
+          <p>If you own a 1–25 provider practice, we replace the offshore billing chair, the third-party clearinghouse middleman, and the spreadsheet aging report with one workforce. Onboarding in 21 days.</p>
+          <span class="arr">See practice plans →</span>
+        </div>
+        <div class="sol-cell">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18M7 14l4-4 4 4 5-5"/></svg>
+          <div class="meta">For RCM companies</div>
+          <h3>White-label the agent layer.</h3>
+          <p>If you operate an RCM business, license our agents under your brand. We provide the platform; you keep the customer relationship. Revenue share or flat-fee licensing — your choice.</p>
+          <span class="arr">Become a partner →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITORIAL / FOUNDER -->
+  <section class="ed-section">
+    <div class="container">
+      <div class="ed-grid">
+        <div>
+          <span class="eyebrow">Why Revify</span>
+          <h2>Healthcare doesn't have a billing problem.<br/>It has a <em>workforce problem.</em></h2>
+        </div>
+        <div class="ed-body">
+          <p>For thirty years the answer has been the same: hire more people. Open a captive in Manila, route claims to Chennai, layer a clearinghouse on top, and pretend the result is technology. <strong>It isn't.</strong> It's labor arbitrage with a portal.</p>
+          <p>What changed in 2024 is that a model can read a payer policy faster than a human, draft an appeal letter that cites the LCD it was denied against, and post 835 remits at 3am with full lineage. Not "AI assist." Real work, owned end to end. Audited.</p>
+          <p>RevifyRCM is what happens when you build that workforce from a clean sheet — with hospital operators, healthcare engineers, and a coding team that has read every CARC code since 2009 still in the room. <strong>We get paid only when you collect.</strong> That alignment changes everything.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="pullquote" style="border-top: 1px solid var(--line);">
+    <div class="container">
+      <div class="frame">
+        <image-slot id="pq-amanda" class="photo-slot" placeholder="Amanda · headshot" shape="rect" radius="10"></image-slot>
+        <div>
+          <blockquote>I came up in operations. I have stared at aging reports at 11pm. The first time I watched our denial agent draft an appeal — citing the right LCD, in the patient's language — I knew the work I had been doing for fifteen years was about to change. So I quit, and built it.</blockquote>
+          <div class="attrib">
+            <span class="name">Amanda Perez</span>
+            <span class="sep">·</span>
+            <span class="role">Founder &amp; President · 15 years RCM operator · Bastrop, TX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="case-section" id="cases">
+    <div class="container">
+      <div class="case-head">
+        <div>
+          <span class="eyebrow">Customers</span>
+          <h2>Real outcomes,<br/><em>not slideware.</em></h2>
+        </div>
+        <a href="#" class="btn btn-ghost btn-sm">All case studies <span class="arrow">→</span></a>
+      </div>
+      <div class="case-grid">
+        <a class="case-card" href="#">
+          <div class="cover" style="background: linear-gradient(135deg, var(--paper-2), var(--paper-3));">
+            <svg width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none">
+              <text x="40" y="120" font-family="Source Serif 4" font-size="64" fill="var(--accent)" font-weight="500">$612K</text>
+              <text x="40" y="148" font-family="JetBrains Mono" font-size="11" fill="var(--ink-3)" letter-spacing="2">RECOVERED · 90 DAYS</text>
+            </svg>
+          </div>
+          <div class="body">
+            <div class="meta">Orthopedics · 24 providers · Texas</div>
+            <h4>How Lone Star Ortho fixed years of underpayments in one quarter.</h4>
+            <p>Contract-reading agents found systematic UCR and modifier underpayments across two payers. Files filed. Money collected.</p>
+            <div class="stat"><span class="v">+5.4%</span><span class="l">net collections lift</span></div>
+          </div>
+        </a>
+        <a class="case-card" href="#">
+          <div class="cover" style="background: linear-gradient(135deg, var(--paper-2), var(--paper-3));">
+            <svg width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none">
+              <text x="40" y="120" font-family="Source Serif 4" font-size="64" fill="var(--accent)" font-weight="500">22 days</text>
+              <text x="40" y="148" font-family="JetBrains Mono" font-size="11" fill="var(--ink-3)" letter-spacing="2">DAYS IN AR · DOWN FROM 41</text>
+            </svg>
+          </div>
+          <div class="body">
+            <div class="meta">Cardiology · 8 providers · Louisiana</div>
+            <h4>Capitol Cardiology cut AR days nearly in half — without losing a person.</h4>
+            <p>Reassigned three billers from claim-status calls to patient-financial-counseling. AR fell, patient satisfaction rose.</p>
+            <div class="stat"><span class="v">−46%</span><span class="l">AR &gt; 90 days</span></div>
+          </div>
+        </a>
+        <a class="case-card" href="#">
+          <div class="cover" style="background: linear-gradient(135deg, var(--paper-2), var(--paper-3));">
+            <svg width="100%" height="100%" viewBox="0 0 400 180" preserveAspectRatio="none">
+              <text x="40" y="120" font-family="Source Serif 4" font-size="64" fill="var(--accent)" font-weight="500">98.7%</text>
+              <text x="40" y="148" font-family="JetBrains Mono" font-size="11" fill="var(--ink-3)" letter-spacing="2">FIRST-PASS · 142K CLAIMS</text>
+            </svg>
+          </div>
+          <div class="body">
+            <div class="meta">Multi-specialty · 47 providers · Texas</div>
+            <h4>Hill Country Health: 142,000 claims, one quarter, first-pass acceptance over 98%.</h4>
+            <p>Replaced legacy clearinghouse rules with context-aware claim assembly. Denials by CARC code, surfaced daily.</p>
+            <div class="stat"><span class="v">−51%</span><span class="l">denial rate</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="book-section" id="book">
+    <div class="container">
+      <div class="book-band">
+        <div>
+          <span class="eyebrow" style="color: var(--accent);">Book a demo</span>
+          <h2>30 minutes with someone who <em>actually built this.</em></h2>
+          <p>You'll see live agent runs against an anonymized claim file. We'll tell you within the call whether RevifyRCM fits your operation. If it doesn't, we'll point you to who does.</p>
+          <div class="person">
+            <image-slot id="book-amanda" class="pic-slot" placeholder="Amanda" shape="circle"></image-slot>
+            <div>
+              <div class="name">Amanda Perez</div>
+              <div class="role">Founder &amp; President · responds within 1 business day</div>
+            </div>
+          </div>
+        </div>
+        <form class="book-card" onsubmit="event.preventDefault(); alert('Thanks — we will be in touch within 1 business day.'); this.reset();">
+          <div class="h">Tell us about you</div>
+          <div class="s">No sales tower. Real call with our team.</div>
+          <div class="row-2">
+            <div class="row"><label>First name</label><input type="text" required placeholder="Jane"></div>
+            <div class="row"><label>Last name</label><input type="text" required placeholder="Doe"></div>
+          </div>
+          <div class="row"><label>Work email</label><input type="email" required placeholder="jane@yourorg.com"></div>
+          <div class="row"><label>Organization</label><input type="text" required placeholder="Hospital, group, or RCM company"></div>
+          <div class="row-2">
+            <div class="row"><label>Role</label><select><option>Owner / CEO</option><option>CFO</option><option>VP Revenue Cycle</option><option>Practice administrator</option><option>Director of billing</option><option>Other</option></select></div>
+            <div class="row"><label>Provider count</label><select><option>1–10</option><option>11–25</option><option>26–100</option><option>100+</option></select></div>
+          </div>
+          <button type="submit">Book a 30-min call →</button>
+          <div class="alt">Prefer to self-schedule? <a href="contact.html">Pick a time on the calendar →</a></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div>
+      <div class="logo" style="color: var(--paper);">
+        <span class="lo-mark"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 4h7.5a4.5 4.5 0 014.5 4.5c0 1.95-1.24 3.62-2.97 4.24L18.5 20H15.3l-3-6.6H9V20H6V4zm3 2.7v4h4.5a2 2 0 100-4H9z"/></svg></span>
+        Revify<span style="color: rgba(247,244,238,0.5); margin-left: 2px;">RCM</span>
+      </div>
+      <p class="brand-blurb"><b>The AI-native revenue cycle.</b> Headquartered in Bastrop, Texas. Engineering in Chennai. Operations across the U.S. South.</p>
+    </div>
+    <div>
+      <h5>Product</h5>
+      <ul>
+        <li><a href="agents.html">Agents</a></li>
+        <li><a href="platform.html">Platform</a></li>
+        <li><a href="outcomes.html">Outcomes</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Solutions</h5>
+      <ul>
+        <li><a href="#">For hospitals</a></li>
+        <li><a href="#">For practices</a></li>
+        <li><a href="#">For RCM companies</a></li>
+        <li><a href="#cases">Customers</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="#">Webinars</a></li>
+        <li><a href="#">ROI calculator</a></li>
+        <li><a href="security.html">Security &amp; HIPAA</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="company.html">About</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="#">Careers · 6 open</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 RevifyRCM, Inc. · Bastrop, TX · <a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Privacy</a> · <a href="terms.html" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Terms</a> · <a href="security.html" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Security</a></span>
+    <span class="mono" style="color: rgba(247,244,238,0.5);">SOC 2 Type II · HIPAA · HITRUST in progress</span>
+    <span class="socials">
+      <a href="https://www.linkedin.com/company/revifyrcm" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM5 8H0v16h5V8zm7.5 0H7.5v16H12v-8.4c0-4.5 5.85-4.85 5.85 0V24H22v-9.7c0-7.05-7.55-6.8-9.5-3.3V8z"/></svg></a>
+      <a href="https://x.com/revifyrcm" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="#" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.04c-3.2.7-3.87-1.37-3.87-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.73-1.53-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18A11 11 0 0112 5.8c.97 0 1.95.13 2.86.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.2.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a>
+    </span>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+<script src="nav.js"></script>
+<script src="footer.js"></script>
+<script src="revi-agent.js"></script>
+<script src="chat-widget.js"></script>
+<script>
+  // Theme toggle
+  const html = document.documentElement;
+  const t = localStorage.getItem('rv-theme');
+  if (t) html.dataset.theme = t;
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const next = html.dataset.theme === 'light' ? 'dark' : 'light';
+    html.dataset.theme = next;
+    localStorage.setItem('rv-theme', next);
+  });
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+<script type="application/json" id="speaker-notes">[]</script>
+</body>
+</html>

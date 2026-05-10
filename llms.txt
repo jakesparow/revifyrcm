@@ -1,0 +1,88 @@
+# RevifyRCM
+
+> The AI-native revenue cycle management company. Built in Bastrop, Texas. 14 specialist AI agents replace the offshore BPO model. Outcome-based pricing — clients pay a percentage of dollars actually posted to their bank, not FTEs or per-claim fees.
+
+RevifyRCM operates the end-to-end revenue cycle for U.S. healthcare providers — hospitals, multi-specialty groups, independent practices, and behavioral health. Every step is run by a specialist AI agent (Eligibility, Prior Auth, CDI, Coding/ICD Intel, Charge Capture, Audit, Scrubbing, Submission, Denial Triage, AR Follow-up, Underpayment Recovery, Contracting, Patient Self-Pay, Statements). A small Bastrop-based human team handles judgment-heavy escalations.
+
+## Company facts
+
+- **Founded:** 2024, Bastrop, Texas
+- **HQ:** Bastrop, TX (within 20 miles of xAI Colossus, SpaceX, Starlink, The Boring Company)
+- **Operations centers:** Charlotte NC · Hyderabad and Chennai India
+- **Founder & President:** Amanda Perez (21+ years in RCM operations)
+- **President, Innovation & Tech:** Sriram Raghavan (built the agent runtime and payer-policy retrieval system)
+- **Director, Client Relationships:** Greg Garza (10+ years front-line RCM)
+- **Director, Global Operations:** Saravanan K. (12+ years end-to-end RCM, Chennai)
+- **Active client accounts:** 38, zero churn
+- **Compliance:** SOC 2 Type II, HIPAA, zero-retention LLM gateways
+
+## What makes RevifyRCM different
+
+1. **AI-native, not AI-bolted-on.** Every claim is touched by an agent first. Humans handle exceptions only.
+2. **Outcome-based pricing.** 4–9% of net collected dollars. No FTE fees, no per-claim charges. Locked in writing.
+3. **Open-ledger audit trail.** Every agent action is replayable in the client portal — a full trace of policy retrieval, reasoning, and decision.
+4. **Underpayment Recovery + Contracting agents.** Two categories competitors (R1, Access Healthcare, Omega, MedEx, BellMedEx) don't run as agents. Recovers dollars the offshore-BPO model leaves on the table.
+5. **30-day shadow run.** We run agents against your last 90 days of claims, benchmark against your current vendor, then decide together.
+
+## Outcome benchmarks (real client data)
+
+- Denial reduction: 25–40% within 90 days
+- Days in AR: typically drops from 38–45 to 19–24
+- Clean-claim rate: 95%+
+- No-touch coding: 96.8% on ICD Intel
+- Net collections lift: 12–18%
+
+## Case studies
+
+- **Houston multi-specialty (TX):** +14.2% net collections, 38d → 19d AR
+- **Charlotte ortho group (NC):** $612K underpayments recovered Q1
+- **Florida behavioral health network:** 28% denial reduction, 92 days
+
+## EHR / PM systems supported
+
+Epic, Athenahealth, eClinicalWorks, Kareo/Tebra, AdvancedMD, NextGen, Cerner, Greenway, eMDs, Valant, Mahler
+
+## Specialties served
+
+Primary care, multispecialty, orthopedics, behavioral health, cardiology, dermatology, gastroenterology, urgent care, OB/GYN, pediatrics, surgical, pain management
+
+## GetMax IT stack (partner products)
+
+RevifyRCM operates on top of the GetMax stack:
+- **portal.getmaxhealthcare.com** — client portal with the open-ledger audit trail
+- **icdintel.getmaxhealthcare.com** — specialty-tuned ICD-10 / CPT coding agent (96.8% no-touch)
+- **getmaxsolutions.com** — voice agent infrastructure (Aria), workflow orchestration
+
+## Common questions
+
+**Q: How is RevifyRCM different from R1 RCM, Access Healthcare, or Omega Healthcare?**
+A: Those are FTE-pricing offshore BPOs. RevifyRCM runs the full cycle on AI agents and prices on outcomes — a percentage of what hits the bank, not seats or per-claim fees.
+
+**Q: What's the typical pricing?**
+A: 4–9% of net collected dollars, scaled by volume and complexity. Locked in writing. No setup, no per-claim, no FTE charges.
+
+**Q: How long does onboarding take?**
+A: 30 days for the shadow run, then live within 60. We run agents against your last 90 days first, benchmark them against your current vendor, and only go live once the numbers prove out.
+
+**Q: Which EHRs do you support?**
+A: Epic, Athena, eClinicalWorks, Kareo/Tebra, AdvancedMD, NextGen, Cerner, Greenway, eMDs, Valant, Mahler. If yours is on this list (or any major FHIR-capable EHR), we connect.
+
+**Q: Where is RevifyRCM based?**
+A: Headquartered in Bastrop, Texas. Operations centers in Charlotte NC, Hyderabad India, and Chennai India.
+
+**Q: Is the platform HIPAA compliant?**
+A: Yes. SOC 2 Type II + HIPAA. All LLM calls are zero-retention. Every agent action is logged in the open-ledger audit trail in the client portal.
+
+## Contact
+
+- **Demo:** https://revifyrcm.com/contact.html
+- **Email:** hello@revifyrcm.com · careers@revifyrcm.com
+- **Phone:** (512) 508-9208
+- **WhatsApp:** +1 (512) 555-0199
+- **Voice agent (Aria):** Call from contact page
+
+## Social
+
+- LinkedIn: https://www.linkedin.com/company/revify-rcm-group
+- X / Twitter: https://x.com/revifyrcm
+- YouTube: https://youtube.com/@revifyrcm

@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en" >
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Platform — 5-layer agent architecture, GetMax IT stack | RevifyRCM</title>
+<meta name="description" content="How the agents reason: open-ledger audit trail, payer-policy retrieval, FHIR ingest, zero-retention LLMs. Powered by portal.getmaxhealthcare.com, ICD Intel, GetMax Solutions." />
+<meta name="keywords" content="AI RCM platform architecture, FHIR RCM, payer policy retrieval, HIPAA AI agents, zero retention LLM healthcare" />
+<meta name="author" content="RevifyRCM" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#0A0B0E" />
+<link rel="canonical" href="https://revifyrcm.com/platform.html" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<link rel="alternate" type="application/rss+xml" title="RevifyRCM Insights" href="/insights.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RevifyRCM" />
+<meta property="og:title" content="Platform — 5-layer agent architecture, GetMax IT stack | RevifyRCM" />
+<meta property="og:description" content="How the agents reason: open-ledger audit trail, payer-policy retrieval, FHIR ingest, zero-retention LLMs. Powered by portal.getmaxhealthcare.com, ICD Intel, GetMax Solutions." />
+<meta property="og:url" content="https://revifyrcm.com/platform.html" />
+<meta property="og:image" content="https://revifyrcm.com/og.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@revifyrcm" />
+<meta name="twitter:creator" content="@revifyrcm" />
+<meta name="twitter:title" content="Platform — 5-layer agent architecture, GetMax IT stack | RevifyRCM" />
+<meta name="twitter:description" content="How the agents reason: open-ledger audit trail, payer-policy retrieval, FHIR ingest, zero-retention LLMs. Powered by portal.getmaxhealthcare.com, ICD Intel, GetMax Solutions." />
+<meta name="twitter:image" content="https://revifyrcm.com/og.svg" />
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"RevifyRCM","alternateName":"Revify RCM Group","url":"https://revifyrcm.com","logo":"https://revifyrcm.com/favicon.svg","description":"AI-native revenue cycle management for U.S. healthcare providers. 14 specialist AI agents. Outcome-based pricing.","foundingDate":"2024","founders":[{"@type":"Person","name":"Amanda Perez","jobTitle":"Founder & President"}],"address":{"@type":"PostalAddress","addressLocality":"Bastrop","addressRegion":"TX","addressCountry":"US"},"contactPoint":[{"@type":"ContactPoint","telephone":"+1-512-508-9208","contactType":"sales","email":"hello@revifyrcm.com","areaServed":"US","availableLanguage":["English"]},{"@type":"ContactPoint","contactType":"careers","email":"careers@revifyrcm.com"}],"sameAs":["https://www.linkedin.com/company/revify-rcm-group","https://x.com/revifyrcm","https://youtube.com/@revifyrcm"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://revifyrcm.com/"},{"@type":"ListItem","position":2,"name":"Platform","item":"https://revifyrcm.com/platform.html"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero { padding: 80px 0 60px; }
+  .arch { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+  .layer { background: var(--paper-2); padding: 32px; display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: start; }
+  @media (max-width: 880px) { .layer { grid-template-columns: 1fr; gap: 12px; } }
+  .layer .head { font-family: var(--mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .16em; }
+  .layer .head h3 { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: -0.02em; color: var(--fg); margin: 8px 0 0; text-transform: none; }
+  .layer .nodes { display: flex; gap: 10px; flex-wrap: wrap; }
+  .node { font-family: var(--mono); font-size: 12px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; color: var(--fg-2); background: var(--card); }
+  .layer.featured .node { border-color: var(--accent); color: var(--accent); }
+
+  .product { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 40px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; margin-bottom: 24px; }
+  @media (max-width: 880px) { .product { grid-template-columns: 1fr; gap: 24px; padding: 28px; } }
+  .product .meta .url { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+  .product h2 { font-family: var(--serif); font-size: 40px; font-weight: 400; line-height: 1; letter-spacing: -0.025em; margin: 12px 0 16px; }
+  .product .meta p { color: var(--fg-2); font-size: 15px; line-height: 1.6; max-width: 380px; }
+  .product .feat { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+  .product .feat .it { padding: 20px 0; border-bottom: 1px solid var(--line); padding-right: 24px; }
+  .product .feat .it:nth-child(odd) { border-right: 1px solid var(--line); padding-left: 0; }
+  .product .feat .it:nth-child(even) { padding-left: 24px; }
+  .product .feat .it h4 { font-family: var(--sans); font-size: 14px; font-weight: 500; margin: 0 0 6px; color: var(--fg); }
+  .product .feat .it p { color: var(--fg-3); font-size: 13px; line-height: 1.5; margin: 0; }
+
+  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
+  .trust { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; }
+  .trust h4 { font-family: var(--serif); font-size: 22px; margin: 0 0 8px; font-weight: 400; }
+  .trust p { color: var(--fg-3); font-size: 13px; margin: 0; line-height: 1.5; }
+</style>
+</head>
+<body>
+<a id="skip-link" href="#main" class="skip-link">Skip to content</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></a>
+    <div class="nav-links">
+      <a href="agents.html">Agents</a>
+      <a href="outcomes.html">Outcomes</a>
+      <a href="platform.html" class="active">Platform</a>
+      <a href="team.html">Team</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
+      <a href="company.html">Company</a>
+    </div>
+      <a href="company.html">Company</a>
+    </div>
+    <div class="nav-cta">
+      <a href="company.html" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="company.html#demo" class="btn btn-primary btn-sm">Book a demo →</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">The platform</span>
+      <h1 class="h-display" style="max-width:1100px;">Built on the <em>GetMax</em> stack.</h1>
+      <p class="lede">RevifyRCM's agent network is engineered, hosted, and operated on infrastructure we own end-to-end — three products under the GetMax Healthcare umbrella, none of them rented.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="eyebrow">Architecture</span>
+      <h2 class="h-1" style="margin:16px 0 32px;max-width:760px;">From your EHR to a posted dollar,<br/><em style="color:var(--fg-3)">on rails we built.</em></h2>
+      <div class="arch">
+        <div class="layer">
+          <div class="head">Layer 01<h3>Sources</h3></div>
+          <div class="nodes">
+            <span class="node">Athena</span><span class="node">Epic</span><span class="node">eCW</span><span class="node">Kareo</span><span class="node">AdvancedMD</span><span class="node">Practice Fusion</span><span class="node">Custom HL7/FHIR</span>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="head">Layer 02<h3>Ingest &amp; data plane</h3></div>
+          <div class="nodes">
+            <span class="node">getmaxglobal.com</span><span class="node">FHIR R4 normalizer</span><span class="node">PHI tokenization</span><span class="node">Audit log</span>
+          </div>
+        </div>
+        <div class="layer featured">
+          <div class="head">Layer 03 · CORE<h3>Agent network</h3></div>
+          <div class="nodes">
+            <span class="node">Eligibility</span><span class="node">Prior Auth</span><span class="node">ICD Intel · Coding</span><span class="node">CDI</span><span class="node">Charge Capture</span><span class="node">Scrubbing</span><span class="node">Denial Triage</span><span class="node">AR</span><span class="node">Underpayment</span><span class="node">Patient Billing</span><span class="node">Cash Posting</span><span class="node">Credentialing</span><span class="node">Contracting</span><span class="node">CFO Copilot</span>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="head">Layer 04<h3>Workspace</h3></div>
+          <div class="nodes">
+            <span class="node">portal.getmaxhealthcare.com</span><span class="node">Worklists</span><span class="node">Exceptions</span><span class="node">CFO dashboards</span><span class="node">Audit timeline</span>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="head">Layer 05<h3>Egress</h3></div>
+          <div class="nodes">
+            <span class="node">47 clearinghouses</span><span class="node">1,400+ payer connections</span><span class="node">Bank reconciliation</span><span class="node">GL integrations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="eyebrow">Three products</span>
+      <h2 class="h-1" style="margin:16px 0 32px;">The GetMax stack, <em style="color:var(--fg-3)">in detail.</em></h2>
+
+      <div class="product">
+        <div class="meta">
+          <span class="url">portal.getmaxhealthcare.com</span>
+          <h2>GetMax Portal</h2>
+          <p>The unified RCM workspace for your team and ours. Every agent action, every claim, every dollar, every exception — in one audit-ready timeline. Role-based access for providers, billers, executives, and patients.</p>
+          <a href="https://portal.getmaxhealthcare.com" class="btn btn-ghost" style="margin-top:24px;">Visit portal →</a>
+        </div>
+        <div class="feat">
+          <div class="it"><h4>Unified worklist</h4><p>Exceptions, denials, and aging buckets in one queue — assigned by AI, worked by humans only when needed.</p></div>
+          <div class="it"><h4>Real-time AR</h4><p>Live aging, payer mix, and cash velocity. No more month-end reports.</p></div>
+          <div class="it"><h4>Audit timeline</h4><p>Every agent prompt, decision, and action — replayable, exportable, defensible.</p></div>
+          <div class="it"><h4>Native messaging</h4><p>Threaded comms between providers, billers, agents, and patients.</p></div>
+          <div class="it"><h4>200+ permissions</h4><p>Granular role-based access. Provider, biller, exec, ops, patient, auditor.</p></div>
+          <div class="it"><h4>EHR-agnostic</h4><p>Athena, Epic, eCW, Kareo, AdvancedMD, Practice Fusion, custom HL7/FHIR.</p></div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="meta">
+          <span class="url">icdintel.getmaxhealthcare.com</span>
+          <h2>ICD Intel</h2>
+          <p>Our autonomous coding engine. Reads notes, op reports, labs, and imaging. Returns CPT, ICD-10, and HCPCS with NCCI edits, modifier logic, and a rationale per code that your auditors can read.</p>
+          <a href="https://icdintel.getmaxhealthcare.com" class="btn btn-ghost" style="margin-top:24px;">Visit ICD Intel →</a>
+        </div>
+        <div class="feat">
+          <div class="it"><h4>96.8% no-touch</h4><p>Specialty-tuned across 17 specialties. Auto-codes the 96.8% that don't need human review.</p></div>
+          <div class="it"><h4>Rationale per code</h4><p>Every CPT/ICD-10 returned with the documentation evidence that supports it.</p></div>
+          <div class="it"><h4>Real-time CDI</h4><p>Drafts compliant queries to providers at point of care, not 14 days later.</p></div>
+          <div class="it"><h4>NCCI + LCD edits</h4><p>Built-in correct-coding initiative checks and local-coverage policy gates.</p></div>
+          <div class="it"><h4>HCC capture</h4><p>RAF-aware suggestions for risk-adjusted populations.</p></div>
+          <div class="it"><h4>Auditor-mode</h4><p>Switch to retrospective audit on any provider, code, or DOS range.</p></div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="meta">
+          <span class="url">getmaxglobal.com</span>
+          <h2>GetMax Solutions</h2>
+          <p>The IT &amp; integration layer. Clearinghouse pipelines, payer APIs, EHR connectors, and the secure data plane behind every agent decision. The plumbing nobody sees, that everything depends on.</p>
+          <a href="https://getmaxglobal.com" class="btn btn-ghost" style="margin-top:24px;">Visit Solutions →</a>
+        </div>
+        <div class="feat">
+          <div class="it"><h4>47 clearinghouses</h4><p>Multi-route claim submission with automatic failover.</p></div>
+          <div class="it"><h4>1,400+ payers</h4><p>Real-time eligibility, claim status, and ERA delivery.</p></div>
+          <div class="it"><h4>Zero-retention LLMs</h4><p>Vendored gateways with strict no-training, no-logging guarantees.</p></div>
+          <div class="it"><h4>SOC 2 Type II</h4><p>Audited annually. HIPAA. HITRUST in progress.</p></div>
+          <div class="it"><h4>FHIR R4</h4><p>Modern interop spec. Bidirectional sync with major EHRs.</p></div>
+          <div class="it"><h4>BAA-ready</h4><p>Signed BAAs with every model provider in the stack.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="eyebrow">Trust &amp; security</span>
+      <h2 class="h-1" style="margin:16px 0 32px;">Built for the <em style="color:var(--fg-3)">most regulated industry on earth.</em></h2>
+      <div class="trust-grid">
+        <div class="trust"><h4>SOC 2 Type II</h4><p>Annual audit by independent firm. Report available under NDA.</p></div>
+        <div class="trust"><h4>HIPAA</h4><p>BAA-ready. Encryption at rest and in transit. Least-privilege by default.</p></div>
+        <div class="trust"><h4>HITRUST</h4><p>r2 certification in progress. Q3 2026 target.</p></div>
+        <div class="trust"><h4>Zero-retention AI</h4><p>No PHI used to train base models. Per-tenant context isolation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" style="text-align:center;">
+    <div class="container">
+      <h2 class="h-display">A platform you can <em>show your auditors.</em></h2>
+      <p class="lede" style="margin:24px auto 32px;text-align:center;">Request our trust packet, SOC 2 report, and architecture deck.</p>
+      <a href="company.html#demo" class="btn btn-primary">Request docs →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><div class="logo" style="margin-bottom:16px;"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></div><p style="color:var(--fg-3);max-width:300px;font-size:13px;line-height:1.6;">The AI-native revenue cycle.</p></div>
+    <div><h5>Product</h5><ul><li><a href="agents.html">Agents</a></li><li><a href="platform.html">Platform</a></li><li><a href="outcomes.html">Outcomes</a></li></ul></div>
+    <div><h5>Stack</h5><ul><li><a href="https://portal.getmaxhealthcare.com">portal.getmaxhealthcare.com</a></li><li><a href="https://icdintel.getmaxhealthcare.com">icdintel.getmaxhealthcare.com</a></li><li><a href="https://getmaxglobal.com">getmaxglobal.com</a></li></ul></div>
+    <div><h5>Company</h5><ul><li><a href="company.html">About</a></li><li><a href="company.html#demo">Book demo</a></li></ul></div>
+    <div>
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="security.html">Security &amp; HIPAA</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+      <span>© 2026 RevifyRCM, Inc.</span>
+      <div class="footer-socials" aria-label="Social links">
+        <a href="https://www.linkedin.com/company/revify-rcm-group" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.5 18V10H6v8h2.5zM7.25 8.85a1.45 1.45 0 1 0 0-2.9 1.45 1.45 0 0 0 0 2.9zM18 18v-4.6c0-2.2-1.18-3.2-2.75-3.2-1.27 0-1.84.7-2.16 1.2V10H10.6c.03.7 0 8 0 8h2.5v-4.5c0-.22.02-.44.08-.6.18-.44.58-.9 1.27-.9.9 0 1.25.68 1.25 1.68V18H18z"/></svg></a>
+        <a href="https://x.com/revifyrcm" aria-label="X / Twitter" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.52 7.45L22.5 22h-6.79l-5.32-6.96L4.4 22H1.64l6.97-7.97L1.5 2h6.95l4.81 6.36L18.24 2zm-2.38 18.4h1.88L7.27 3.51H5.27L15.86 20.4z"/></svg></a>
+        <a href="https://youtube.com/@revifyrcm" aria-label="YouTube" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a>
+        <a href="https://wa.me/15125550199" aria-label="WhatsApp" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.8 5.5 2.2 7.8L0 32l8.5-2.2c2.2 1.2 4.8 1.9 7.5 1.9 8.8 0 16-7.2 16-16S24.8 0 16 0z"/></svg></a>
+      </div>
+      <span class="mono">SOC 2 · HIPAA</span>
+    </div>
+</footer>
+<script src="revi-agent.js"></script>
+<script src="nav.js"></script>
+<script src="footer.js"></script>
+<script src="chat-widget.js"></script>
+</body>
+</html>

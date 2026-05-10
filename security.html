@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Security &amp; HIPAA — RevifyRCM</title>
+<meta name="description" content="SOC 2 Type II, HIPAA, HITRUST CSF v11. How RevifyRCM secures PHI: encryption, access control, monitoring, vendor management, and breach response." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://revifyrcm.com/security.html" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Security &amp; HIPAA — RevifyRCM" />
+<meta property="og:description" content="SOC 2 Type II · HIPAA · HITRUST. How we secure PHI." />
+<meta property="og:image" content="https://revifyrcm.com/og.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .sec-hero { padding: 80px 0 32px; }
+  .sec-hero h1 { font-family: var(--display); font-size: clamp(56px, 7vw, 104px); line-height: .98; letter-spacing: -0.04em; margin: 24px 0 0; font-weight: 400; }
+  .sec-hero h1 em { font-style: italic; color: var(--fg-3); }
+  .sec-hero .lede { font-size: clamp(18px, 1.6vw, 22px); color: var(--fg-2); max-width: 720px; line-height: 1.5; margin-top: 28px; }
+
+  .badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 64px 0 80px; }
+  @media (max-width: 880px) { .badges { grid-template-columns: 1fr 1fr; } }
+  .badge-cell { padding: 36px 28px; border-right: 1px solid var(--line); }
+  .badge-cell:last-child { border-right: 0; }
+  @media (max-width: 880px) { .badge-cell { border-bottom: 1px solid var(--line); } .badge-cell:nth-child(2n) { border-right: 0; } }
+  .badge-cell .ic { width: 44px; height: 44px; border-radius: 12px; background: color-mix(in oklab, var(--accent) 14%, transparent); color: var(--accent); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .badge-cell h3 { font-family: var(--display); font-size: 20px; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .badge-cell .sub { font-family: var(--mono); font-size: 10px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .14em; }
+  .badge-cell p { color: var(--fg-2); font-size: 13px; line-height: 1.5; margin: 12px 0 0; }
+
+  .ctrl-grid { display: grid; grid-template-columns: 320px 1fr; gap: 64px; padding: 64px 0; border-top: 1px solid var(--line); }
+  @media (max-width: 880px) { .ctrl-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .ctrl-grid h2 { font-family: var(--display); font-size: clamp(36px, 4vw, 56px); line-height: 1.05; letter-spacing: -0.025em; margin: 0; font-weight: 400; }
+  .ctrl-grid h2 em { font-style: italic; color: var(--fg-3); }
+  .ctrl-list { display: grid; gap: 0; }
+  .ctrl-row { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  .ctrl-row:last-child { border-bottom: 0; }
+  .ctrl-row .n { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: .14em; padding-top: 4px; }
+  .ctrl-row h4 { font-family: var(--display); font-size: 18px; margin: 0; letter-spacing: -0.01em; font-weight: 500; }
+  .ctrl-row p { margin: 6px 0 0; color: var(--fg-2); font-size: 14px; line-height: 1.6; }
+
+  .ir-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 64px 0; border-top: 1px solid var(--line); }
+  @media (max-width: 880px) { .ir-grid { grid-template-columns: 1fr 1fr; } }
+  .ir-cell { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 28px; }
+  .ir-cell .n { font-family: var(--mono); font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: .14em; }
+  .ir-cell .t { font-family: var(--display); font-size: 36px; line-height: 1; margin: 14px 0 6px; letter-spacing: -0.02em; }
+  .ir-cell p { color: var(--fg-2); font-size: 13px; line-height: 1.5; margin: 0; }
+
+  .docs { padding: 64px 0; border-top: 1px solid var(--line); }
+  .docs h2 { font-family: var(--display); font-size: clamp(36px, 4vw, 56px); margin: 12px 0 32px; letter-spacing: -0.025em; line-height: 1.05; font-weight: 400; }
+  .docs h2 em { font-style: italic; color: var(--fg-3); }
+  .doc-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 720px) { .doc-row { grid-template-columns: 1fr; } }
+  .doc { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-md); padding: 22px 24px; display: flex; gap: 16px; align-items: center; transition: border-color .2s, transform .2s; cursor: pointer; }
+  .doc:hover { border-color: var(--accent); transform: translateX(4px); }
+  .doc .ic { width: 38px; height: 38px; border-radius: 8px; background: color-mix(in oklab, var(--accent) 14%, transparent); color: var(--accent); font-family: var(--mono); font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .doc .name { font-family: var(--display); font-size: 16px; letter-spacing: -0.01em; }
+  .doc .meta { font-family: var(--mono); font-size: 10px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .14em; margin-top: 4px; }
+  .doc .arr { margin-left: auto; color: var(--fg-3); font-family: var(--mono); }
+</style>
+</head>
+<body>
+<a id="skip-link" href="#main" class="skip-link">Skip to content</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></a>
+    <div class="nav-links">
+      <a href="agents.html">Agents</a>
+      <a href="outcomes.html">Outcomes</a>
+      <a href="platform.html">Platform</a>
+      <a href="team.html">Team</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
+      <a href="company.html">Company</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="contact.html#book" class="btn btn-primary btn-sm">Book a call →</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="page">
+  <section class="sec-hero">
+    <div class="container">
+      <span class="eyebrow">Security &amp; HIPAA</span>
+      <h1>PHI is sacred.<br/><em>We treat it that way.</em></h1>
+      <p class="lede">Every agent run is logged. Every database is encrypted. Every employee with PHI access is background-checked, MFA-enrolled, and trained quarterly. Here's the receipts.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="badges">
+      <div class="badge-cell">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>SOC 2 Type II</h3>
+        <div class="sub">Audited annually</div>
+        <p>Security, availability, confidentiality. Latest report covers Apr 2025 – Mar 2026.</p>
+      </div>
+      <div class="badge-cell">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M8 6V3M16 6V3"/></svg></div>
+        <h3>HIPAA</h3>
+        <div class="sub">Business associate</div>
+        <p>BAA-ready Day 1. Workforce trained on Privacy and Security Rules quarterly.</p>
+      </div>
+      <div class="badge-cell">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20"/></svg></div>
+        <h3>HITRUST CSF v11</h3>
+        <div class="sub">In progress · Q3'26</div>
+        <p>Certification scheduled for September 2026. Implementation 88% complete.</p>
+      </div>
+      <div class="badge-cell">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <h3>Zero retention</h3>
+        <div class="sub">LLM provider tier</div>
+        <p>All agent inferences run on enterprise contracts with retention disabled and training opt-out.</p>
+      </div>
+    </div>
+
+    <div class="ctrl-grid">
+      <h2>Controls,<br/><em>not slogans.</em></h2>
+      <div class="ctrl-list">
+        <div class="ctrl-row"><div class="n">01</div><div><h4>Encryption everywhere</h4><p>AES-256 at rest. TLS 1.3 in transit. Customer-specific keys in AWS KMS, rotated annually. Field-level encryption for the most sensitive PHI columns.</p></div></div>
+        <div class="ctrl-row"><div class="n">02</div><div><h4>Identity &amp; access</h4><p>SSO/SAML required for all customer end-users. Hardware-token MFA for engineering. Just-in-time elevation with full session recording. Quarterly access reviews.</p></div></div>
+        <div class="ctrl-row"><div class="n">03</div><div><h4>Network &amp; isolation</h4><p>Per-customer database schemas. VPC-isolated production. No flat networks. Egress allowlists. AWS PrivateLink for sensitive integrations.</p></div></div>
+        <div class="ctrl-row"><div class="n">04</div><div><h4>Monitoring &amp; logging</h4><p>Every agent run, API call, and data access is logged with user, IP, and timestamp. Logs are write-once, retained 13 months, and exportable to your SIEM.</p></div></div>
+        <div class="ctrl-row"><div class="n">05</div><div><h4>Vulnerability management</h4><p>Continuous SAST/DAST in CI. Quarterly third-party penetration tests. Public bug-bounty program at HackerOne (private invitation tier).</p></div></div>
+        <div class="ctrl-row"><div class="n">06</div><div><h4>Personnel</h4><p>Background checks, drug screens, and signed confidentiality agreements before any PHI access. Annual HIPAA, security, and phishing training. Acceptable-use policy enforced via MDM.</p></div></div>
+        <div class="ctrl-row"><div class="n">07</div><div><h4>Vendor management</h4><p>All subprocessors are reviewed annually. Customers get 30 days' notice before any new PHI subprocessor is added. Subprocessor list at <a href="privacy.html#share">privacy.html#share</a>.</p></div></div>
+        <div class="ctrl-row"><div class="n">08</div><div><h4>Resilience</h4><p>Multi-AZ production with automatic failover. Daily encrypted backups, 35-day point-in-time recovery. Annual disaster recovery test with documented RTO 4h / RPO 1h.</p></div></div>
+      </div>
+    </div>
+
+    <div class="ir-grid">
+      <div class="ir-cell"><div class="n">— Detection</div><div class="t">15 min</div><p>Mean time to detect a Sev-1 security event from telemetry.</p></div>
+      <div class="ir-cell"><div class="n">— Notify</div><div class="t">48 hr</div><p>Customer notification commitment after confirmed PHI breach.</p></div>
+      <div class="ir-cell"><div class="n">— Recovery</div><div class="t">RTO 4h</div><p>Recovery time objective for full production restoration.</p></div>
+      <div class="ir-cell"><div class="n">— Backup</div><div class="t">RPO 1h</div><p>Maximum acceptable data loss in a worst-case event.</p></div>
+    </div>
+
+    <div class="docs">
+      <span class="eyebrow">Trust documents</span>
+      <h2>Available under<br/><em>NDA on request.</em></h2>
+      <p style="color: var(--fg-2); font-size: 15px; line-height: 1.6; max-width: 56ch; margin: 0 0 28px;">Click any document to request access. We countersign within one business day.</p>
+      <div class="doc-row">
+        <button type="button" class="doc" data-doc="SOC 2 Type II Report"><div class="ic">PDF</div><div><div class="name">SOC 2 Type II Report</div><div class="meta">Apr 2025 – Mar 2026 · NDA required</div></div><span class="arr">→</span></button>
+        <button type="button" class="doc" data-doc="Penetration Test Summary"><div class="ic">PDF</div><div><div class="name">Penetration test summary</div><div class="meta">Q1 2026 · Bishop Fox</div></div><span class="arr">→</span></button>
+        <button type="button" class="doc" data-doc="Business Associate Agreement"><div class="ic">DOCX</div><div><div class="name">Business Associate Agreement</div><div class="meta">Standard form · executable in DocuSign</div></div><span class="arr">→</span></button>
+        <button type="button" class="doc" data-doc="Data Processing Agreement"><div class="ic">PDF</div><div><div class="name">Data Processing Agreement</div><div class="meta">SCCs included for non-US customers</div></div><span class="arr">→</span></button>
+        <button type="button" class="doc" data-doc="Subprocessor List"><div class="ic">URL</div><div><div class="name">Subprocessor list</div><div class="meta">Updated quarterly · public</div></div><span class="arr">→</span></button>
+        <button type="button" class="doc" data-doc="Status &amp; Uptime"><div class="ic">URL</div><div><div class="name">Status &amp; uptime</div><div class="meta">status.revifyrcm.com</div></div><span class="arr">→</span></button>
+      </div>
+    </div>
+
+    <!-- Document request modal -->
+    <div id="req-modal" class="req-modal" hidden>
+      <div class="req-backdrop"></div>
+      <div class="req-panel" role="dialog" aria-labelledby="req-title" aria-modal="true">
+        <button type="button" class="req-close" aria-label="Close">×</button>
+        <span class="eyebrow">Trust center · request access</span>
+        <h3 id="req-title" style="font-family: var(--display); font-size: clamp(28px, 3vw, 40px); line-height: 1.05; letter-spacing: -0.022em; margin: 14px 0 8px; font-weight: 400;">Request <em id="req-doc-name" style="color: var(--fg-3); font-style: italic;">document</em></h3>
+        <p style="color: var(--fg-2); font-size: 14px; margin: 0 0 24px; line-height: 1.55;">We'll send a mutual NDA from DocuSign and the document within one business day.</p>
+        <form class="req-form" id="req-form">
+          <div class="req-grid">
+            <label><span>Full name</span><input required name="name" type="text" placeholder="Jane Doe" /></label>
+            <label><span>Work email</span><input required name="email" type="email" placeholder="jane@hospital.org" /></label>
+          </div>
+          <div class="req-grid">
+            <label><span>Company</span><input required name="company" type="text" placeholder="Hospital / Practice / RCM Co." /></label>
+            <label><span>Role</span><input name="role" type="text" placeholder="Compliance, IT Sec, CFO…" /></label>
+          </div>
+          <label><span>Anything we should know? <em style="color: var(--fg-3);">(optional)</em></span><textarea name="notes" rows="3" placeholder="Procurement timeline, specific clauses, etc."></textarea></label>
+          <div class="req-actions">
+            <button type="submit" class="btn btn-primary">Send request</button>
+            <span class="mono" style="color: var(--fg-3); font-size: 11px; letter-spacing: 0.12em;">REPLY WITHIN 1 BUSINESS DAY</span>
+          </div>
+        </form>
+        <div class="req-success" hidden>
+          <div class="check">✓</div>
+          <h4 style="font-family: var(--display); font-size: 26px; margin: 0; font-weight: 400;">Request received.</h4>
+          <p style="color: var(--fg-2); margin: 12px 0 0; font-size: 14px;">Amanda from our security team will email you within one business day from <a href="mailto:security@revifyrcm.com" style="color: var(--accent);">security@revifyrcm.com</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding: 80px 0; text-align: center; border-top: 1px solid var(--line);">
+      <span class="eyebrow">Found something?</span>
+      <h2 style="font-family: var(--display); font-size: clamp(36px, 4vw, 56px); margin: 16px 0 12px; letter-spacing: -0.025em; line-height: 1.05; font-weight: 400;">Responsible disclosure <em style="color: var(--fg-3); font-style: italic;">welcomed.</em></h2>
+      <p style="color: var(--fg-2); max-width: 580px; margin: 0 auto 28px; font-size: 16px; line-height: 1.6;">Email <a href="mailto:security@revifyrcm.com" style="color: var(--accent);">security@revifyrcm.com</a> with reproduction steps. We acknowledge within 24 hours and aim to remediate critical findings within 7 days. PGP key on request.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><div class="logo" style="margin-bottom:16px;"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></div><p style="color:var(--fg-3);max-width:340px;font-size:13px;line-height:1.6;">The AI-native revenue cycle. Bastrop, Texas.</p></div>
+    <div><h5>Product</h5><ul><li><a href="agents.html">Agents</a></li><li><a href="platform.html">Platform</a></li><li><a href="outcomes.html">Outcomes</a></li></ul></div>
+    <div><h5>Company</h5><ul><li><a href="team.html">Team</a></li><li><a href="company.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h5>Legal</h5><ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="security.html">Security &amp; HIPAA</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 RevifyRCM, Inc.</span>
+    <span class="mono">SOC 2 · HIPAA · HITRUST</span>
+  </div>
+</footer>
+<style>
+  /* Doc request modal */
+  .doc { width: 100%; text-align: left; font-family: inherit; color: inherit; cursor: pointer; }
+  .req-modal { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; padding: 24px; }
+  .req-modal[hidden] { display: none; }
+  .req-backdrop { position: absolute; inset: 0; background: rgba(10,8,5,0.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+  .req-panel { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-pop); width: 100%; max-width: 560px; padding: 36px 36px 32px; max-height: calc(100vh - 48px); overflow: auto; }
+  .req-close { position: absolute; top: 16px; right: 16px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--fg-2); font-size: 22px; line-height: 1; cursor: pointer; display: grid; place-items: center; transition: all .15s; }
+  .req-close:hover { background: var(--paper-2); color: var(--accent); border-color: var(--accent); }
+  .req-form { display: grid; gap: 16px; }
+  .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 540px) { .req-grid { grid-template-columns: 1fr; } }
+  .req-form label { display: grid; gap: 6px; }
+  .req-form span { font-family: var(--mono); font-size: 10px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.14em; }
+  .req-form input, .req-form textarea { width: 100%; padding: 12px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); font-family: var(--sans); font-size: 14px; color: var(--fg); transition: border-color .15s, box-shadow .15s; }
+  .req-form input:focus, .req-form textarea:focus { outline: 0; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .req-form textarea { resize: vertical; min-height: 76px; }
+  .req-actions { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .req-success { text-align: center; padding: 24px 0 12px; }
+  .req-success .check { width: 56px; height: 56px; border-radius: 50%; background: color-mix(in oklab, var(--sage, #6E8B6B) 22%, transparent); color: var(--sage, #6E8B6B); font-size: 26px; display: grid; place-items: center; margin: 0 auto 18px; }
+</style>
+<script>
+  (function(){
+    var modal = document.getElementById('req-modal');
+    var nameEl = document.getElementById('req-doc-name');
+    var form = document.getElementById('req-form');
+    var success = modal.querySelector('.req-success');
+    function open(doc){ nameEl.textContent = doc; form.hidden = false; success.hidden = true; modal.hidden = false; document.documentElement.style.overflow = 'hidden'; setTimeout(function(){ var f = form.querySelector('input'); if(f) f.focus(); }, 50); }
+    function close(){ modal.hidden = true; document.documentElement.style.overflow = ''; }
+    document.querySelectorAll('[data-doc]').forEach(function(b){ b.addEventListener('click', function(){ open(b.getAttribute('data-doc')); }); });
+    modal.querySelector('.req-backdrop').addEventListener('click', close);
+    modal.querySelector('.req-close').addEventListener('click', close);
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !modal.hidden) close(); });
+    form.addEventListener('submit', function(e){ e.preventDefault(); form.hidden = true; success.hidden = false; });
+  })();
+</script>
+<script src="revi-agent.js"></script>
+<script src="nav.js"></script>
+<script src="footer.js"></script>
+<script src="chat-widget.js"></script>
+</body>
+</html>

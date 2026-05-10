@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Underpayment detection for ortho ASCs — RevifyRCM Insights</title>
+<meta name="description" content="How the Underpayment agent reads carve-outs, implant pricing, and modifier policy at line level. Playbook by Sriram Raghavan." />
+<meta name="theme-color" content="#0A0B0E" />
+<link rel="canonical" href="https://revifyrcm.com/post-underpayment.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Underpayment detection for ortho ASCs: contract math, line by line" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="post-styles.css" />
+</head>
+<body>
+<a id="skip-link" href="#main" class="skip-link">Skip to content</a>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></a>
+    <div class="nav-links"><a href="agents.html">Agents</a><a href="outcomes.html">Outcomes</a><a href="platform.html">Platform</a><a href="team.html">Team</a><a href="insights.html" class="active">Insights</a><a href="contact.html">Contact</a><a href="company.html">Company</a></div>
+    <div class="nav-cta"><a href="company.html" class="btn btn-ghost btn-sm">Sign in</a><a href="contact.html" class="btn btn-primary btn-sm">Book a demo →</a></div>
+  </div>
+</nav>
+
+<main id="main" class="page">
+  <article>
+    <header class="article-hero container">
+      <div class="crumbs"><a href="insights.html">Insights</a> · Playbook · 9 min read</div>
+      <h1>Underpayment detection for ortho ASCs: contract math, line by line.</h1>
+      <p class="lede">How the Underpayment agent reads carve-outs, implant pricing, and modifier policy at the line level — and what it flags within 24 hours of remit.</p>
+      <div class="byline"><div class="av">SR</div><div class="meta"><strong>Sriram Raghavan</strong> · Co-founder & CTO · Apr 02, 2026</div></div>
+    </header>
+
+    <div class="cover-art container">
+      <svg viewBox="0 0 1100 540" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1100" height="540" fill="#0F1116"/>
+        <g font-family="JetBrains Mono, monospace" font-size="14" fill="#8A887F">
+          <rect x="100" y="80" width="900" height="48" fill="#181B22" rx="6"/><text x="120" y="110">CPT 27447  ·  KNEE ARTHRO</text><text x="780" y="110" fill="#5C5A52">EXPECTED $2,840</text><text x="950" y="110" fill="#FF6B3D">−$420</text>
+          <rect x="100" y="140" width="900" height="48" fill="#181B22" rx="6"/><text x="120" y="170">L8699  ·  IMPLANT</text><text x="780" y="170" fill="#5C5A52">EXPECTED $1,210</text><text x="950" y="170" fill="#C7FF3F">+$0</text>
+          <rect x="100" y="200" width="900" height="48" fill="#1A1D24" stroke="#C7FF3F" stroke-width="1.5" rx="6"/><text x="120" y="230" fill="#F4F2EE">CPT 29881  ·  MENISC</text><text x="780" y="230" fill="#5C5A52">EXPECTED $1,980</text><text x="950" y="230" fill="#FF6B3D">−$310</text>
+          <rect x="100" y="260" width="900" height="48" fill="#181B22" rx="6"/><text x="120" y="290">MOD 51  ·  CARVE-OUT</text><text x="780" y="290" fill="#5C5A52">EXPECTED $ —</text><text x="950" y="290" fill="#FF6B3D">−$180</text>
+        </g>
+        <text x="100" y="380" font-family="Geist" font-size="60" fill="#C7FF3F" font-weight="500" letter-spacing="-2">−$910 <tspan fill="#F4F2EE" font-size="34" font-style="italic">/ case</tspan></text>
+        <text x="100" y="430" font-family="JetBrains Mono, monospace" font-size="13" fill="#5C5A52" letter-spacing="2">UNDERPAYMENT DELTA · LINE-LEVEL · CARVE-OUT INTERPRETED</text>
+      </svg>
+    </div>
+
+    <div class="article">
+      <div class="prose">
+        <p>Most underpayment software is a percent comparison. Expected vs. allowed; if the variance is over a threshold, it flags. That's a fine first pass, and it catches the obvious cases. But it misses the interesting ones — the cases where the contract was written for a specialty the payer didn't fully understand, the modifier rules diverge between place-of-service codes, or the implant carve-out has its own fee schedule that nobody at the practice has read in eighteen months.</p>
+
+        <p>This playbook is the actual decision tree our Underpayment agent runs across orthopedic ASCs. We're publishing it because (a) we think the math is interesting and (b) we don't think it's a moat. The moat is in the maintenance — keeping 4,200 payer policies and ~600 contract templates in sync — and in the audit trail. The math is just math.</p>
+
+        <h2>The four classes of underpayment</h2>
+        <ol>
+          <li><strong>Fee-schedule miss.</strong> The payer reimbursed at last year's rate. Easy to detect, common after January 1.</li>
+          <li><strong>Modifier mis-application.</strong> A bilateral procedure paid as unilateral; a multiple-procedure reduction applied where it shouldn't be.</li>
+          <li><strong>Carve-out missed.</strong> Implants, biologics, or specific high-cost CPTs have their own line in the contract that the standard adjudication ignored.</li>
+          <li><strong>Bundling override.</strong> The payer bundled two services that the contract explicitly says are separately billable.</li>
+        </ol>
+
+        <p>In our orthopedic data, the breakdown of dollars at risk looks like this:</p>
+
+        <table class="data-table">
+          <thead><tr><th>Class</th><th>% of recoverable $</th><th>Median delta</th><th>Recovery rate</th></tr></thead>
+          <tbody>
+            <tr><td class="hi">Carve-out missed</td><td class="num">38%</td><td class="num">$610</td><td class="num">82%</td></tr>
+            <tr><td class="hi">Modifier mis-application</td><td class="num">26%</td><td class="num">$340</td><td class="num">74%</td></tr>
+            <tr><td class="hi">Bundling override</td><td class="num">21%</td><td class="num">$880</td><td class="num">68%</td></tr>
+            <tr><td class="hi">Fee-schedule miss</td><td class="num">15%</td><td class="num">$120</td><td class="num">94%</td></tr>
+          </tbody>
+        </table>
+
+        <h2>How the agent reads a contract</h2>
+        <p>Most ortho contracts are 40–120 pages of legal language with a fee schedule appendix. Buried in the body are the carve-out clauses — the sentences that say "<em>notwithstanding the foregoing, the following CPT/HCPCS codes shall be reimbursed at…</em>". These are the dollar-leak landmines.</p>
+        <p>The agent does three things on contract ingestion:</p>
+        <ol>
+          <li>Builds a structured object per code: <code>{ cpt, base_rate, carve_out, modifiers_allowed, bundling_rules }</code>.</li>
+          <li>Cross-references each code against the payer's published medical policy library.</li>
+          <li>Flags discrepancies between contract and policy — these are arbitrage opportunities, and they exist more often than you'd expect.</li>
+        </ol>
+
+        <div class="pullquote">A contract is a document. A payer adjudication is an opinion. The opinion is wrong about 11% of the time.<span class="at">— S.R.</span></div>
+
+        <h2>How the agent reads a remit</h2>
+        <p>The 835 remit is structured but not particularly informative — it tells you what was paid, not what was expected. The agent joins each line of the remit against the structured contract object, against the payer's posted fee schedule for the date of service, and against any active addenda the contract references. Where any of those disagree with the payment, it flags.</p>
+
+        <div class="callout"><div class="lbl">Edge case worth knowing</div><p>About 4% of the underpayments we recover are technically correct under one interpretation of the contract and incorrect under another. We always send the appeal with both interpretations cited. Win rate on these mixed cases is 64% — lower than clean-cut underpayments, but the appeal labor is ~1 minute of agent time, so the ROI is unambiguous.</p></div>
+
+        <h2>What "within 24 hours of remit" actually means</h2>
+        <p>The 24-hour SLA matters because the appeal window matters. Most payer contracts give you 90 to 180 days from remit to file an appeal, but the win rate degrades sharply after the first 30 days as the payer's adjudication memory fades and you start arguing against a re-interpreted record rather than a fresh one. We see a 14-point win rate drop between appeals filed in week 1 vs. week 5.</p>
+
+        <h2>The compounding result</h2>
+        <p>Across our orthopedic ASC deployments, the Underpayment agent recovers <strong>1.4–2.8% of net collections</strong> that the prior workflow was missing. On a $20M ASC, that's <code>$280K–$560K</code> a year — money that was already earned, just not collected. We charge a percent of recovery on this work. The math is good for everyone.</p>
+
+        <div class="callout"><div class="lbl">Try it</div><p>Send us a sample of your last 90 days of 835s plus your three biggest payer contracts. We'll run the analysis and give you a written report of recoverable dollars within 5 business days. Free. <a href="contact.html">Start an underpayment audit →</a></p></div>
+      </div>
+
+      <section class="related"><h4>Keep reading</h4><div class="related-grid">
+        <a href="post-eligibility.html"><span class="tag">Cover · 14 min</span><h5>Why 70% of denials originate at the front desk.</h5></a>
+        <a href="post-kpis.html"><span class="tag">Field guide · 6 min</span><h5>The 5 KPIs every CFO should rename in 2026.</h5></a>
+      </div></section>
+
+      <section class="endcap">
+        <h2 class="h-1">See what your prior vendor <em style="color:var(--fg-3);">never told you.</em></h2>
+        <a href="contact.html" class="btn btn-primary">Start an audit →</a>
+      </section>
+    </div>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><div class="logo" style="margin-bottom:16px;"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></div><p style="color:var(--fg-3);max-width:340px;font-size:13px;line-height:1.6;">The AI-native revenue cycle. Bastrop, Texas.</p></div>
+    <div><h5>Product</h5><ul><li><a href="agents.html">Agents</a></li><li><a href="platform.html">Platform</a></li><li><a href="outcomes.html">Outcomes</a></li></ul></div>
+    <div><h5>GetMax stack</h5><ul><li><a href="https://portal.getmaxhealthcare.com">portal.getmaxhealthcare.com</a></li><li><a href="https://icdintel.getmaxhealthcare.com">icdintel.getmaxhealthcare.com</a></li><li><a href="https://getmaxglobal.com">getmaxglobal.com</a></li></ul></div>
+    <div><h5>Company</h5><ul><li><a href="team.html">Team</a></li><li><a href="company.html">About</a></li><li><a href="contact.html">Book demo</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 RevifyRCM, Inc.</span><span class="mono">SOC 2 · HIPAA</span></div>
+</footer>
+<script src="nav.js"></script>
+<script src="footer.js"></script>
+<script src="chat-widget.js"></script>
+</body>
+</html>

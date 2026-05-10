@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /v1/
+Disallow: /scraps/
+
+Sitemap: https://revifyrcm.com/sitemap.xml

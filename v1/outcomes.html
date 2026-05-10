@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Outcomes & Pricing — RevifyRCM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero { padding: 80px 0 60px; }
+  .roi { background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  @media (max-width: 880px) { .roi { grid-template-columns: 1fr; padding: 28px; } }
+  .roi label { display: block; font-family: var(--mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .14em; margin-bottom: 8px; }
+  .roi .field { margin-bottom: 24px; }
+  .roi input[type=range] { width: 100%; accent-color: var(--accent); }
+  .roi .val { font-family: var(--serif); font-size: 28px; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .roi .out { background: var(--ink); border: 1px solid var(--line-2); border-radius: var(--r-md); padding: 32px; display: grid; gap: 20px; }
+  .roi .out .big { font-family: var(--serif); font-size: 56px; line-height: 1; letter-spacing: -0.03em; color: var(--accent); }
+  .roi .out .row { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 13px; color: var(--fg-2); }
+  .roi .out .row b { color: var(--fg); font-weight: 500; }
+
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; margin-top: 56px; }
+  @media (max-width: 880px) { .pricing-grid { grid-template-columns: 1fr; } }
+  .plan { background: var(--ink); padding: 36px; display: flex; flex-direction: column; gap: 18px; }
+  .plan.featured { background: var(--ink-2); }
+  .plan h3 { font-family: var(--serif); font-size: 28px; line-height: 1; letter-spacing: -0.02em; margin: 0; font-weight: 400; }
+  .plan .price { font-family: var(--serif); font-size: 48px; line-height: 1; letter-spacing: -0.03em; }
+  .plan .price small { font-family: var(--sans); font-size: 14px; color: var(--fg-3); }
+  .plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; font-size: 14px; color: var(--fg-2); }
+  .plan li { padding-left: 22px; position: relative; }
+  .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); }
+  .plan .badge { font-family: var(--mono); font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: .14em; }
+
+  .case-deep { display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px; padding: 56px 0; border-top: 1px solid var(--line); }
+  @media (max-width: 880px) { .case-deep { grid-template-columns: 1fr; gap: 24px; } }
+  .case-deep .stat-num { font-size: 80px; }
+  .case-deep .num-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; padding: 28px 0; border-top: 1px solid var(--line); margin-top: 28px; }
+  .case-deep .num-row .m b { font-family: var(--serif); font-size: 36px; font-weight: 400; letter-spacing: -0.02em; display: block; }
+  .case-deep .num-row .m span { font-family: var(--mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .12em; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></a>
+    <div class="nav-links">
+      <a href="agents.html">Agents</a>
+      <a href="outcomes.html" class="active">Outcomes</a>
+      <a href="platform.html">Platform</a>
+      <a href="company.html">Company</a>
+    </div>
+    <div class="nav-cta">
+      <a href="company.html" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="company.html#demo" class="btn btn-primary btn-sm">Book a demo →</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Outcomes &amp; pricing</span>
+      <h1 class="h-display" style="max-width:1100px;">We get paid <em>when you do.</em></h1>
+      <p class="lede">No FTE pricing. No per-claim fees. We invoice a percentage of dollars actually posted to your bank — and benchmark our performance against your prior vendor in writing.</p>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <span class="eyebrow">Three engagement models</span>
+      <h2 class="h-1" style="margin:16px 0 0;max-width:780px;">Pick the depth.<br/><em style="color:var(--fg-3)">Always outcome-based.</em></h2>
+      <div class="pricing-grid">
+        <div class="plan">
+          <span class="badge">Shadow</span>
+          <h3>Pilot</h3>
+          <div class="price">Free<br/><small>30-day proof of concept</small></div>
+          <ul>
+            <li>Score 90 days of historical claims</li>
+            <li>Side-by-side benchmark vs. your vendor</li>
+            <li>Written audit + ROI projection</li>
+            <li>Read-only — no operational change</li>
+          </ul>
+          <a href="company.html#demo" class="btn btn-ghost" style="margin-top:auto;">Start a pilot →</a>
+        </div>
+        <div class="plan featured">
+          <span class="badge">Most chosen</span>
+          <h3>Full RCM</h3>
+          <div class="price">2.5–4.5%<br/><small>of net collections, by specialty &amp; volume</small></div>
+          <ul>
+            <li>All 14 agents · end-to-end ownership</li>
+            <li>Dedicated revenue ops pod (human+agent)</li>
+            <li>SLA: −30% AR days in 90 days or rebate</li>
+            <li>Weekly CFO read-out</li>
+            <li>White-label patient billing</li>
+          </ul>
+          <a href="company.html#demo" class="btn btn-primary" style="margin-top:auto;">Book a demo →</a>
+        </div>
+        <div class="plan">
+          <span class="badge">Augmentation</span>
+          <h3>Agents-only</h3>
+          <div class="price">$ on lift<br/><small>% of incremental collections vs baseline</small></div>
+          <ul>
+            <li>Plug specific agents into your existing team</li>
+            <li>Denial Triage · Underpayment · Coding</li>
+            <li>Native integrations: Athena, Epic, eCW, AdvancedMD</li>
+            <li>Pay only on measurable lift</li>
+          </ul>
+          <a href="company.html#demo" class="btn btn-ghost" style="margin-top:auto;">Talk to sales →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="eyebrow">ROI calculator</span>
+      <h2 class="h-1" style="margin:16px 0 32px;max-width:760px;">What you'd recover<br/><em style="color:var(--fg-3)">in the first year.</em></h2>
+      <div class="roi">
+        <div>
+          <div class="field">
+            <label>Annual net collections</label>
+            <div class="val" id="v-rev">$24M</div>
+            <input id="rev" type="range" min="2" max="200" value="24" step="1" />
+          </div>
+          <div class="field">
+            <label>Current denial rate</label>
+            <div class="val" id="v-den">12%</div>
+            <input id="den" type="range" min="3" max="25" value="12" step="0.5" />
+          </div>
+          <div class="field">
+            <label>Days in AR</label>
+            <div class="val" id="v-ar">42 days</div>
+            <input id="ar" type="range" min="20" max="90" value="42" step="1" />
+          </div>
+          <div class="field">
+            <label>Current vendor cost (% of collections)</label>
+            <div class="val" id="v-cost">5.5%</div>
+            <input id="cost" type="range" min="2" max="9" value="5.5" step="0.1" />
+          </div>
+        </div>
+        <div class="out">
+          <div>
+            <div class="mono" style="margin-bottom:8px;">PROJECTED YEAR-1 IMPACT</div>
+            <div class="big" id="o-total">$2.94M</div>
+            <div class="mono" style="margin-top:4px;color:var(--fg-3);">Net to your bottom line, after RevifyRCM fees</div>
+          </div>
+          <div class="row"><span>Denial recovery uplift</span><b id="o-den">$1.15M</b></div>
+          <div class="row"><span>Underpayment recovery</span><b id="o-up">$432K</b></div>
+          <div class="row"><span>AR acceleration (working-capital benefit)</span><b id="o-ar">$680K</b></div>
+          <div class="row"><span>Vendor cost savings</span><b id="o-vendor">$672K</b></div>
+          <div class="row" style="border-bottom:1px solid var(--line);"><span>− RevifyRCM fee (3.0%)</span><b id="o-fee">−$720K</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="eyebrow">Case studies</span>
+      <h2 class="h-1" style="margin:16px 0 0;">Texas. North Carolina. <em style="color:var(--fg-3)">And counting.</em></h2>
+
+      <div class="case-deep">
+        <div>
+          <div class="mono" style="margin-bottom:8px;">CASE 01 · HOUSTON, TX</div>
+          <div class="stat-num">+14.2%</div>
+          <div class="stat-label">Net collections lift, year-one</div>
+        </div>
+        <div>
+          <p style="font-family:var(--serif);font-size:28px;line-height:1.25;letter-spacing:-0.02em;font-weight:300;margin:0;">Multi-specialty group, 47 providers, replacing a 22-person offshore team. The denial agent paid for the engagement in month one.</p>
+          <p style="color:var(--fg-2);font-size:15px;line-height:1.6;margin-top:24px;max-width:640px;">Before: 41 days in AR, 13.8% denial rate, three different vendors splitting eligibility, coding, and AR. We collapsed the stack and ran the entire cycle through the agent network. The internal AR team shrank from 11 to 4 — and they're now doing exception-only work.</p>
+          <div class="num-row">
+            <div class="m"><b>+14.2%</b><span>Net collections</span></div>
+            <div class="m"><b>19 days</b><span>AR (from 41)</span></div>
+            <div class="m"><b>$3.8M</b><span>Recovered Y1</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-deep">
+        <div>
+          <div class="mono" style="margin-bottom:8px;">CASE 02 · CHARLOTTE, NC</div>
+          <div class="stat-num">$612K</div>
+          <div class="stat-label">Underpayments recovered Q1</div>
+        </div>
+        <div>
+          <p style="font-family:var(--serif);font-size:28px;line-height:1.25;letter-spacing:-0.02em;font-weight:300;margin:0;">Orthopedic specialty hospital. The contracting agent reads payer agreements line by line and reconciles every paid claim against entitled rates.</p>
+          <p style="color:var(--fg-2);font-size:15px;line-height:1.6;margin-top:24px;max-width:640px;">In the first 90 days, the underpayment agent surfaced $612K in line-level underpayments their previous BPO had silently posted as paid. Turns out, the contract included a 6% implant carve-out their vendor had never modeled.</p>
+          <div class="num-row">
+            <div class="m"><b>−47%</b><span>Denial rate</span></div>
+            <div class="m"><b>99.1%</b><span>Clean-claim rate</span></div>
+            <div class="m"><b>$612K</b><span>Underpayment recovery</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-deep">
+        <div>
+          <div class="mono" style="margin-bottom:8px;">CASE 03 · AUSTIN, TX</div>
+          <div class="stat-num">22.6</div>
+          <div class="stat-label">Days in AR (from 58)</div>
+        </div>
+        <div>
+          <p style="font-family:var(--serif);font-size:28px;line-height:1.25;letter-spacing:-0.02em;font-weight:300;margin:0;">Behavioral health network across central Texas. Patient-pay is half the book — most vendors quietly write it off.</p>
+          <p style="color:var(--fg-2);font-size:15px;line-height:1.6;margin-top:24px;max-width:640px;">The patient-billing agent ran TCPA-compliant outreach across SMS, email, and voice — with payment plans personalized inside the network's policy. Self-pay yield jumped 41%, with zero compliance complaints filed.</p>
+          <div class="num-row">
+            <div class="m"><b>+41%</b><span>Self-pay yield</span></div>
+            <div class="m"><b>22.6 days</b><span>Days in AR</span></div>
+            <div class="m"><b>0</b><span>Compliance complaints</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" style="text-align:center;">
+    <div class="container">
+      <h2 class="h-display">See your number.<br/><em>In writing.</em></h2>
+      <p class="lede" style="margin:24px auto 32px;text-align:center;">Send us a 90-day claim file. We'll send back a contract-grade ROI projection in 5 business days.</p>
+      <a href="company.html#demo" class="btn btn-primary">Book a demo →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div><div class="logo" style="margin-bottom:16px;"><span class="logo-mark"></span> Revify<span style="color:var(--fg-3)">RCM</span></div><p style="color:var(--fg-3);max-width:300px;font-size:13px;line-height:1.6;">The AI-native revenue cycle.</p></div>
+    <div><h5>Product</h5><ul><li><a href="agents.html">Agents</a></li><li><a href="platform.html">Platform</a></li><li><a href="outcomes.html">Outcomes</a></li></ul></div>
+    <div><h5>Stack</h5><ul><li><a href="https://portal.getmaxhealthcare.com">portal.getmaxhealthcare.com</a></li><li><a href="https://icdintel.getmaxhealthcare.com">icdintel.getmaxhealthcare.com</a></li><li><a href="https://getmaxsolutions.com">getmaxsolutions.com</a></li></ul></div>
+    <div><h5>Company</h5><ul><li><a href="company.html">About</a></li><li><a href="company.html#demo">Book demo</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 RevifyRCM, Inc.</span><span class="mono">SOC 2 · HIPAA</span></div>
+</footer>
+
+<script>
+  const fmt = (n) => n >= 1e6 ? '$' + (n/1e6).toFixed(2) + 'M' : n >= 1e3 ? '$' + Math.round(n/1e3) + 'K' : '$' + Math.round(n);
+  function calc() {
+    const rev = +document.getElementById('rev').value * 1e6;
+    const den = +document.getElementById('den').value;
+    const ar = +document.getElementById('ar').value;
+    const cost = +document.getElementById('cost').value;
+    document.getElementById('v-rev').textContent = '$' + rev/1e6 + 'M';
+    document.getElementById('v-den').textContent = den + '%';
+    document.getElementById('v-ar').textContent = ar + ' days';
+    document.getElementById('v-cost').textContent = cost.toFixed(1) + '%';
+
+    const denialUplift = rev * (den/100) * 0.40;          // 40% of denied $ recovered
+    const underpayment = rev * 0.018;                      // 1.8% lift typical
+    const arBenefit = rev * (Math.max(0, ar - 22) / 365) * 0.08; // working capital cost saved
+    const vendorSavings = rev * (cost/100) - rev * 0.03;
+    const fee = rev * 0.03;
+    const total = denialUplift + underpayment + arBenefit + Math.max(0, vendorSavings);
+    document.getElementById('o-den').textContent = fmt(denialUplift);
+    document.getElementById('o-up').textContent = fmt(underpayment);
+    document.getElementById('o-ar').textContent = fmt(arBenefit);
+    document.getElementById('o-vendor').textContent = fmt(Math.max(0, vendorSavings));
+    document.getElementById('o-fee').textContent = '−' + fmt(fee);
+    document.getElementById('o-total').textContent = fmt(total);
+  }
+  ['rev','den','ar','cost'].forEach(id => document.getElementById(id).addEventListener('input', calc));
+  calc();
+</script>
+</body>
+</html>
